@@ -1,0 +1,7 @@
+/* Resize the image */
+#header .image img {
+    max-width: 100%;
+    height: auto;
+    width: 200px; /* Adjust size here */
+    border-radius: 50%; /* Optional: makes the image round */
+}
