@@ -4,7 +4,7 @@
 Welcome to my **personal portfolio website**, built with HTML, CSS, and hosted on **GitHub Pages**. 🚀  
 
 ## 🖥️ Live Website  
-🔗 [https://ericyang.github.io](https://ericyang.github.io)  
+🔗 [https://ericyangdr.github.io](https://ericyangdr.github.io)  
 
 ## 📌 About This Portfolio  
 This website showcases my skills, projects, and experience in **Data Analytics, SQL, Power BI, Python, and more**.  
@@ -26,7 +26,7 @@ This website showcases my skills, projects, and experience in **Data Analytics, 
 - 📝 **Python Data Automation**  
 
 ## 💡 How to Use  
-Simply visit my portfolio at [https://ericyang.github.io](https://ericyang.github.io) to explore my work.  
+Simply visit my portfolio at [https://ericyangdr.github.io](https://ericyangdr.github.io) to explore my work.  
 
 ## 📬 Contact  
 📧 Email: [yannaungsoe.dr@gmail.com](mailto:yannaungsoe.dr@gmail.com)  
