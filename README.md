@@ -1,5 +1,5 @@
 # ericyang.github.io
-# 🌐 My Portfolio - [Soe Yan Naung (Eric)]  
+# 🌐 My Portfolio - Soe Yan Naung (Eric) 
 
 Welcome to my **personal portfolio website**, built with HTML, CSS, and hosted on **GitHub Pages**. 🚀  
 
