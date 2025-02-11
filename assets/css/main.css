@@ -2126,12 +2126,13 @@ input, select, textarea {
 
 			.image.fit img {
 				width: 100%;
-				width: 150px;
-				height: 150px;
+				
 			}
 
 		.image.avatar {
 			border-radius: 100%;
+			width: 150px;
+			height: 150px;
 		}
 
 			.image.avatar:before {
