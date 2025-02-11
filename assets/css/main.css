@@ -2129,11 +2129,9 @@ input, select, textarea {
 				
 			}
 
-.image.avatar {
+                   	.image.avatar {
 			border-radius: 100%;
-			width: 150px;
-			height: 150px;
-		}
+					}
 
 			.image.avatar:before {
 				display: none;
