@@ -2129,27 +2129,20 @@ input, select, textarea {
 				
 			}
 
-		.image.synpp {
-    border-radius: 50%;
-    width: 150px;  
-    height: 150px; 
-    overflow: hidden;
-    display: inline-block;
-    position: relative;
-}
+.image.synpp {
+			border-radius: 100%;
+			width: 150px;
+			height: 150px;
+		}
 
 			.image.avatar:before {
 				display: none;
 			}
 
-			.image.synpp img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the circle area without distortion */
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
+			.image.avatar img {
+				border-radius: 100%;
+				width: 100%;
+				height: 100%; 
 }
 /* List */
 
