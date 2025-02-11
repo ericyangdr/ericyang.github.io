@@ -2130,21 +2130,24 @@ input, select, textarea {
 			}
 
 		.image.synpp {
-			border-radius: 100%;
-			width: 150px;
-			height: 150px;
-		}
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: inline-block;
+}
+
 
 			.image.avatar:before {
 				display: none;
 			}
 
-			.image.avatar img {
-				border-radius: 100%;
-				width: 100%;
-				height: 100%; 
-
-			}
+			.image.synpp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
 /* List */
 
 	ol {
