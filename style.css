@@ -1,6 +1,6 @@
 .circle-image {
-    width: 250px; /* Adjust size as needed */
-    height: 250px; /* Adjust size as needed */
+    width: 300px; /* Increased size */
+    height: 300px; /* Increased size */
     border-radius: 50%;
     overflow: hidden;
     display: inline-block;
