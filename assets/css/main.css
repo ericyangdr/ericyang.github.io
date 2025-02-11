@@ -2093,52 +2093,64 @@ input, select, textarea {
 				opacity: 1.0;
 			}
 
-		.image img {
-			border-radius: 0.35em;
-			display: block;
-		}
+/* Image inside the avatar */
+.image img {
+    border-radius: 0.35em;
+    display: block;
+}
 
-		.image.left {
-			float: left;
-			margin: 0 1.5em 1em 0;
-			top: 0.25em;
-		}
+/* Floating image on the left */
+.image.left {
+    float: left;
+    margin: 0 1.5em 1em 0;
+    top: 0.25em;
+}
 
-		.image.right {
-			float: right;
-			margin: 0 0 1em 1.5em;
-			top: 0.25em;
-		}
+/* Floating image on the right */
+.image.right {
+    float: right;
+    margin: 0 0 1em 1.5em;
+    top: 0.25em;
+}
 
-		.image.left, .image.right {
-			max-width: 40%;
-		}
+/* Max-width for floating images */
+.image.left, .image.right {
+    max-width: 40%;
+}
 
-			.image.left img, .image.right img {
-				width: 100%;
-			}
+.image.left img, .image.right img {
+    width: 100%;
+}
 
-		.image.fit {
-			display: block;
-			margin: 0 0 2em 0;
-			width: 100%;
-		}
+/* Fit image */
+.image.fit {
+    display: block;
+    margin: 0 0 2em 0;
+    width: 100%;
+}
 
-			.image.fit img {
-				width: 100%;
-			}
+.image.fit img {
+    width: 100%;
+}
 
-		.image.avatar {
-			border-radius: 100%;
-		}
+/* Avatar Image - Increased size */
+.image.avatar {
+    width: 250px; /* Adjust the size of the avatar */
+    height: 250px; /* Ensure height matches width for a perfect circle */
+    border-radius: 50%; /* Makes the image circular */
+    overflow: hidden; /* Prevents the image from spilling out */
+    display: block; /* Treats the image as a block element */
+    margin: 0 auto; /* Centers the avatar horizontally */
+}
 
-			.image.avatar:before {
-				display: none;
-			}
+/* Image inside avatar */
+.image.avatar img {
+    width: 100%; /* Makes the image fill the avatar container */
+    height: 100%; /* Ensures the image fits perfectly */
+    object-fit: cover; /* Crops the image to cover the circle without stretching */
+    display: block; /* Removes any extra space below the image */
+}
 
-			.image.avatar img {
-				border-radius: 100%;
-				width: 100%;
 			}
 /* List */
 
