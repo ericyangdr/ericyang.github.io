@@ -2093,53 +2093,62 @@ input, select, textarea {
 				opacity: 1.0;
 			}
 
-		.image img {
-			border-radius: 0.35em;
-			display: block;
-		}
+/* General Image Styling */
+.image img {
+    border-radius: 0.35em;
+    display: block;
+}
 
-		.image.left {
-			float: left;
-			margin: 0 1.5em 1em 0;
-			top: 0.25em;
-		}
+/* Left & Right Floating Images */
+.image.left {
+    float: left;
+    margin: 0 1.5em 1em 0;
+    top: 0.25em;
+}
 
-		.image.right {
-			float: right;
-			margin: 0 0 1em 1.5em;
-			top: 0.25em;
-		}
+.image.right {
+    float: right;
+    margin: 0 0 1em 1.5em;
+    top: 0.25em;
+}
 
-		.image.left, .image.right {
-			max-width: 40%;
-		}
+.image.left, .image.right {
+    max-width: 40%;
+}
 
-			.image.left img, .image.right img {
-				width: 100%;
-			}
+.image.left img, .image.right img {
+    width: 100%;
+}
 
-		.image.fit {
-			display: block;
-			margin: 0 0 2em 0;
-			width: 100%;
-		}
+/* Fit Image to Container */
+.image.fit {
+    display: block;
+    margin: 0 0 2em 0;
+    width: 100%;
+}
 
-			.image.fit img {
-				width: 100%;
-			}
+.image.fit img {
+    width: 100%;
+}
 
-		.image.avatar {
-			border-radius: 100%;
-		}
+/* ✅ Avatar Image Styling (Fixing Alignment & Size) */
+.image.avatar {
+    width: 300px; /* Adjust size as needed */
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Centers the image */
+}
 
-			.image.avatar:before {
-				display: none;
-			}
-
-			.image.avatar img {
-				border-radius: 100%;
-				width: 200%;
-			}
+.image.avatar img {
+    border-radius: 100%;
+    width: 100%; /* Ensures the image fits inside */
+    height: 100%;
+    object-fit: cover; /* Prevents stretching */
+}
 
 /* List */
 
