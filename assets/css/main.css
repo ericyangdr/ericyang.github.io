@@ -2048,12 +2048,12 @@ input, select, textarea {
 			border-radius: 0.35em;
 			content: '';
 			display: block;
-			height: 150%;
+			height: 100%;
 			left: 0;
 			opacity: 0.5;
 			position: absolute;
 			top: 0;
-			width: 150%;
+			width: 100%;
 		}
 
 		.image.thumb {
@@ -2126,6 +2126,8 @@ input, select, textarea {
 
 			.image.fit img {
 				width: 100%;
+				width: 150px;
+				height: 150px;
 			}
 
 		.image.avatar {
@@ -2139,6 +2141,7 @@ input, select, textarea {
 			.image.avatar img {
 				border-radius: 100%;
 				width: 100%;
+				height: 100%; 
 
 			}
 /* List */
