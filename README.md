@@ -17,7 +17,6 @@ This website showcases my skills, projects, and experience in **Data Analytics, 
 ## 🛠️ Technologies Used  
 - HTML  
 - CSS  
-- JavaScript (if applicable)  
 - GitHub Pages  
 
 ## 📈 Projects Included  
