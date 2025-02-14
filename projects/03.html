@@ -42,22 +42,22 @@
 <body>
   <div class="container-lg px-3 my-5 markdown-body">
 
-    <h1><a href="https://ericyangdr.github.io">Eric Yang </a></h1>
+    <h3><a href="https://ericyangdr.github.io">Eric Yang </a></h3>
 
     <h1 id="Data-cleaning-for-grocery-store-sales">Data Cleaning for Grocery Store Sales</h1>
 
-    <h1 id="background">Project Overview</h1>
+    <h2 id="Project-Overview">Project Overview</h2>
     <p>In this project, I focus on <strong>cleaning and preparing grocery sales data</strong> to ensure accuracy and reliability. Clean data is essential for making informed business decisions, and this process helps eliminate inconsistencies, duplicates, and errors.</p>
 
     <p><img src="https://raw.githubusercontent.com/ericyangdr/EricYang/main/1133%20(2).jpg" alt="" /></p>
 
-    <h1 id="backgroud">Background</h1>
+    <h2 id="backgroud">Background</h2>
     <p>FoodYum is a well-established grocery store chain operating across the United States, offering a wide range of products including produce, meat, dairy, baked goods, and household essentials. With the rising cost of food, FoodYum is committed to maintaining a diverse inventory that remains affordable for all customers.<br>
       <br>
       To achieve this goal, FoodYum recognizes the need for clean, structured data to accurately reflect their product offerings, as well as track customer purchases effectively. This project aims to develop a data-driven solution that enhances the efficiency of inventory management, ensuring that customers have access to high-quality products at competitive prices while optimizing operational costs.
     </p>
 
-    <h1 id="the-data">The Data</h1>
+    <h2 id="the-data">The Data</h2>
     <p>This project focuses on cleansing FoodYum's data to ensure its accuracy and readiness for analysis. The dataset includes columns such as product_id, product_type, brand, weight, price, average_units_sold, year_added, and stock_location. The cleansing process addresses errors, missing values, and formatting inconsistencies, supporting better inventory management, sales tracking, and decision-making.</p>
 
     </p>
@@ -70,8 +70,8 @@
     <h1 id="1980c2b0-beb8-8009-90e5-f900c0dea8c1" class="">Why Data Cleansing Matters</h1>
     <p id="1980c2b0-beb8-80b2-9fb9-e1bd853bea50" class="">Unclean data can lead to <strong>misleading insights and poor decision-making</strong>. By thoroughly cleaning this dataset, we ensure that FoodYum can make accurate <strong>inventory and pricing decisions</strong> based on trustworthy data.</p>
 
-    <h1 id="Data Cleaning">Data Cleaning</h1>
-    <h2 id="1-handling-missing-value-finding-missing-values-using-COUNT()-functon">1. <strong>Handling Missing Value</strong>: Finding missing values using COUNT() function.</h2>
+    <h2 id="Data Cleaning">Data Cleaning</h2>
+    <h3 id="1-handling-missing-value-finding-missing-values-using-COUNT()-functon">1. <strong>Handling Missing Value</strong>: Finding missing values using COUNT() function.</h3>
 
     <div class="language-sql highlighter-rouge">
       <div class="highlight">
@@ -100,7 +100,7 @@
 
     <p>The output reveals that there are 170 missing values in the dataset, while the year_added column has 0 missing values. This indicates that all entries in the year_added column are complete, ensuring data consistency for this attribute. However, other columns may still require further inspection and cleansing.</p>
 
-    <h2 id="2-handling-other-data">2. <strong>Handling other data</strong>: Replacing missing value, handling duplicate, and others</h2>
+    <h3 id="2-handling-other-data">2. <strong>Handling other data</strong>: Replacing missing value, handling duplicate, and others</h3>
     <div class="language-sql highlighter-rouge">
       <div class="highlight">
         <pre class="highlight">
@@ -240,7 +240,7 @@
 
     <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/image003.png" alt="" /></p>
 
-    <h2 id="3-Analysing-data-using-aggregate-function">3. <strong>Data Analysis</strong>: Start analysing data using aggregate functions.</h2>
+    <h3 id="3-Analysing-data-using-aggregate-function">3. <strong>Data Analysis</strong>: Start analysing data using aggregate functions.</h3>
 
     <div class="language-sql highlighter-rouge">
       <div class="highlight">
@@ -295,7 +295,7 @@
 
     <p>The table reveals the price ranges for different product types. Snacks have the lowest price range, with a minimum of 5.20 and a maximum of 10.72. Produce follows closely with a minimum price of 3.46 and a maximum of 8.78. Dairy products are priced higher, ranging from 8.33 to 13.97. Bakery products have a moderate price range, spanning from 6.26 to 11.88. Meanwhile, meat products are the highest-priced, with a minimum of 11.48 and a maximum of 16.98. These findings indicate that meat has the highest price range, while produce offers the lowest minimum price.</p>
 
-    <h2 id="Analysing-data-on-specific-type-of-products">4. <strong>Data Analysis</strong>: Start analysing on specific type of products.</h2>
+    <h3 id="Analysing-data-on-specific-type-of-products">4. <strong>Data Analysis</strong>: Start analysing on specific type of products.</h3>
 
     <div class="language-sql highlighter-rouge">
       <div class="highlight">
@@ -350,11 +350,11 @@
 
     <p>The table presents data on product prices and their corresponding average units sold. Prices range from 9.26 to 16.20, with the majority of products falling within a similar price range around 16.00. The average units sold vary across products, with values ranging from 9.26 to 16.13. This indicates that higher-priced products, such as those close to the 16.00 mark, tend to have a relatively consistent average of units sold, suggesting a steady demand for these products. However, a few products with lower average units sold might indicate variations in product popularity or sales trends across different categories</p>
 
-    <h2 id="Recommendation-and-Conclusion">5. <strong>Recommendation and Conclusion</strong>:
-      Why Clean Data is the Foundation of Great Analysis</h2>
-    <h3 id="Recommendation-and-Conclusion">Data Cleaning: Organizing Your Phone Contacts</h3>
+    <h3 id="Recommendation-and-Conclusion">5. <strong>Recommendation and Conclusion</strong>:
+      Why Clean Data is the Foundation of Great Analysis</h3>
+    <h4 id="Recommendation-and-Conclusion">Data Cleaning: Organizing Your Phone Contacts</h4>
     <p>Imagine your phone contact list is messy—there are duplicates, some contacts have wrong phone numbers, and others are incomplete. When you try to find a number or call someone, it becomes frustrating and time-consuming because your list is disorganized.</p>
-    <h3 id="Recommendation-and-Conclusion">What Makes a Dataset Clean?</h3>
+    <h4 id="Recommendation-and-Conclusion">What Makes a Dataset Clean?</h4>
     <p>A clean dataset is like a well-organized phone contact list:</p>
     <ul>
       <li><strong>Complete</strong>: Every contact has all the necessary details, like name and phone number—nothing is missing.</li>
@@ -362,12 +362,12 @@
       <li><strong>Consistent</strong>: The contact information is in a consistent format—names are written the same way, and phone numbers follow the same structure.</li>
       <li><strong>Unique</strong>: No duplicates—each contact appears only once in the list, making it easy to find who you need.</li>
     </ul>
-    <h3 id="Recommendation-and-Conclusion">Why Clean Data Matters</h3>
+    <h4 id="Recommendation-and-Conclusion">Why Clean Data Matters</h4>
     <p>When your data is messy, like your phone contacts, things can go wrong. For example, I once worked on a project where customer records had duplicate entries. It made it seem like we had more customers than we really did, leading us to overestimate demand. After cleaning the data—removing duplicates and correcting errors—we were able to better understand customer behavior and make informed decisions.</p>
 
     <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/image0031.png" alt="" /></p>
 
-    <h3 id="Recommendation-and-Conclusion">Conclusion</h3>
+    <h4 id="Recommendation-and-Conclusion">Conclusion</h4>
     <p>Just like a clean and organized contact list makes it easy to reach the right person, clean data ensures that your analysis is accurate and reliable. Without cleaning, you might end up with confusion and incorrect conclusions. This is why the principle of "garbage in, garbage out" applies—if you input flawed or unclean data, the results of your analysis will be just as flawed and unreliable.</p>
 
     <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
