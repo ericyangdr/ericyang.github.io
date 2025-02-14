@@ -3215,3 +3215,29 @@ input, select, textarea {
 			}
 
 	}
+/* Certifications Section */
+.certifications {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.certifications h3 {
+    color: #333;
+    font-family: 'Open Sans Light', sans-serif;
+    font-size: 1.3em;
+}
+
+/* Badge Container */
+.badge-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px; /* Space between badges */
+}
+
+/* Style for Badges */
+.badge {
+    width: 120px; /* Set uniform width */
+    height: 120px; /* Set uniform height */
+    object-fit: contain; /* Ensures images scale correctly */
+}
