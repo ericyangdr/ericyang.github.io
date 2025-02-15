@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Analysing the Effect of Social Media on Mental Health: | Jim Rossiter</title>
+<title>Analysing the Impact of Social Media on Mental Health: | Jim Rossiter</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Analysing the Effect of Social Media on Mental Health:" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://jimrossiter.github.io/projects/socialmedia.html" />
-<meta property="og:url" content="https://jimrossiter.github.io/projects/socialmedia.html" />
-<meta property="og:site_name" content="Jim Rossiter" />
+<link rel="canonical" href="https://ericyangdr.github.io/projects/02.html" />
+<meta property="og:url" content=" https://ericyangdr.github.io/projects/02.html" />
+<meta property="og:site_name" content="Eric Yang" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Analysing the Effect of Social Media on Mental Health:" />
+<meta property="twitter:title" content="Analysing the Impact of Social Media on Mental Health" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","headline":"Analysing the Effect of Social Media on Mental Health:","url":"https://jimrossiter.github.io/projects/socialmedia.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","headline":"Analysing the Impact of Social Media on Mental Health:","url":"https://ericyangdr.github.io/projects/02.html "}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=c9ceaf7af3e0f58f04dfbf6099defaa70cb93d6b">
@@ -36,23 +36,23 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       
-      <h1><a href="https://jimrossiter.github.io/">Jim Rossiter </a></h1>
+      <h3><a href="https://ericyangdr.github.io/">Eric Yang </a></h3>
       
 
-      <h1 id="analysing-the-effect-of-social-media-on-mental-health">Analysing the Effect of Social Media on Mental Health:</h1>
-<p><em>03 May 2024</em></p>
+      <h1 id="analysing-the-impact-of-social-media-on-mental-health">Analysing the Impact of Social Media on Mental Health</h1>
+<p><em></em></p>
 
-<p><img src="https://images.stockcake.com/public/2/5/8/258f6d72-bcd2-4950-8fe1-28ff941f261f_large/social-media-analysis-stockcake.jpg" alt="" /></p>
+<p><img src=" https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/social%20media.png " alt="" /></p>
 
 <h2 id="background">Background</h2>
-<p>I sourced this dataset from Kaggle, accessible <a href="https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health">here</a>. As an educator, I’ve observed a significant surge in phone usage and social media engagement. This piqued my interest, prompting an in-depth exploration into the quantitative impacts of these platforms on users. This dataset offered an ample opportunity to analyze and understand these effects.</p>
+<p>I found <a href=" https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health ">this dataset</a> on Kaggle, which provided a valuable resource for my analysis. As someone with a background in education, I’ve noticed a noticeable increase in phone usage and social media activity among users. This observation sparked my curiosity and led me to investigate the quantitative effects these platforms have on individuals. The dataset gave me a great opportunity to explore and better understand these impacts.</p>
 
 <h2 id="exploratory-data-analysis">Exploratory Data Analysis</h2>
-<p>My first task was to again take in the data and get an overall feel for it. It is important for me that I familiarise myself with the data and its labels so that I am not misinterpreting any information at a later point. This would take away any credibility from my findings.</p>
+<p>My first task was to review the data and get a general understanding of it. I need to familiarize myself with the data and its labels to avoid any misinterpretation later, which could affect the credibility of my findings..</p>
 
-<p>It is worth mentioning the Likert Scale is employed for this trial of 479 participants. The Likert Scale serves as a measurement tool for assessing various mental health effects, including depression levels. For instance, participants may rate their depression experiences on a scale of 1 to 5, where 1 signifies minimal depression and 5 indicates severe depression. This structured approach allows us to quantitatively analyze not only depression but also other variables such as anxiety, restlessness, and concentration difficulty. By utilizing this standardized scale across different constructs, we can capture and compare participants’ feelings, allowing for accurate insights into mental health within our dataset.</p>
+<p>It’s also worth noting that the dataset uses the Likert Scale, which was applied to 479 participants. This scale measures various mental health effects, such as depression levels. For example, participants rate their depression on a scale from 1 to 5, where 1 means minimal depression and 5 means severe depression. This standardized approach helps analyze not just depression but also anxiety, restlessness, and difficulty concentrating. By using the same scale for different factors, we can effectively compare and understand the participants' mental health.</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Inspecting the table for a broad view</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Inspecting the whole table for a broader view</span>
 <span class="k">SELECT</span><span class="o">*</span>
 <span class="k">FROM</span> <span class="n">smmh</span><span class="p">;</span>
 
@@ -63,91 +63,342 @@
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Gender</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_anxiety</span> <span class="k">DESC</span><span class="p">;</span>
 </code></pre></div></div>
-<p>When examining average anxiety scores, it’s crucial to consider context. For instance, transgender respondents showed a maximum average score of 5, but this statistic is heavily influenced by the small sample size of only one participant. Similarly, non-binary respondents, comprising only four individuals, can also skew the results. While these scores shouldn’t be discounted, a more accurate reflection requires data collection from a more substantial sample group. Interestingly, female and male respondents demonstrated comparable scores in this analysis.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gender</th>
+      <th>avg_anxiety</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Female</td>
+      <td>3.70</td>
+    </tr>
+    <tr>
+      <td>Male</td>
+      <td>3.41</td>
+    </tr>
+  </tbody>
+</table>
+<p> Overall, the table shows that females report slightly higher levels of anxiety (3.70) compared to males (3.41). This indicates a modest gender difference in anxiety levels within the dataset. While the difference is not large, it highlights a trend where females appear to experience slightly higher anxiety on average than males.</p>
+<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Male%20vs%20female.png" alt="" /></p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 2: RELATIONSHIP STATUS &amp; ANXIETY</span>
-<span class="k">SELECT</span> <span class="n">RelationshipStatus</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">ANXIETY</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_anxiety</span>
+<span class="k">SELECT DISTINCT</span> 
+  <span class="n">rs_status</span>, 
+  <span class="n">ROUND</span>(<span class="k">AVG</span>(<span class="n">anxiety</span>) <span class="k">OVER</span>(<span class="k">PARTITION</span> <span class="k">BY</span> <span class="n">rs_status</span>), <span class="mi">2</span>) <span class="k">AS</span> <span class="n">avg_anxiety</span>
 <span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">RelationshipStatus</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_anxiety</span> <span class="k">DESC</span><span class="p">;</span>
 </code></pre></div></div>
-<p>Single individuals exhibited the highest average anxiety score at 3.79, whereas married respondents reported the lowest average of 2.85. This disparity could be attributed to factors such as age, with married individuals generally being older and potentially more resilient. However, an alternative perspective suggests that single individuals may experience heightened anxiety due to various factors, such as societal pressures, loneliness, or uncertainty about the future. Further exploration is warranted.</p>
+<table>
+  <thead>
+    <tr>
+      <th>rs_status</th>
+      <th>avg_anxiety</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Single</td>
+      <td>3.79</td>
+    </tr>
+    <tr>
+      <td>In a relationship</td>
+      <td>3.71</td>
+    </tr>
+    <tr>
+      <td>Divorced</td>
+      <td>3.29</td>
+    </tr>
+    <tr>
+      <td>Married</td>
+      <td>2.85</td>
+    </tr>
+  </tbody>
+</table>
+<p>Single individuals showed the highest average anxiety score at 3.79, while married individuals had the lowest, with an average of 2.85. This notable difference could be influenced by factors such as age, as married individuals are often older and may have developed greater emotional resilience. On the other hand, single individuals might experience higher anxiety levels due to societal pressures, feelings of loneliness, or uncertainty about their future. These potential contributing factors warrant further investigation to better understand the relationship between relationship status and anxiety.</p>
+<p><img src=" https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/married%20vs%20single.png" alt="" /></p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 3: AGE &amp; DEPRESSION</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">smmh</span>
 <span class="n">CHANGE</span> <span class="k">COLUMN</span> <span class="nv">`ï»¿Age`</span> <span class="n">Age</span> <span class="nb">INT</span><span class="p">;</span>
 </code></pre></div></div>
 <p><strong>Before looking at age, I altered the table. The original column name wasn’t the most reader- or writer-friendly.</strong></p>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">Age</span><span class="p">),</span> <span class="k">MAX</span><span class="p">(</span><span class="n">Age</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="n">smmh</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight">
+      <code>
+        <span class="k">WITH</span> <span class="n">age_groups</span> <span class="k">AS</span> <span class="p">(</span>
+            <span class="k">SELECT</span> 
+                <span class="k">CASE</span> 
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">10</span> <span class="k">AND</span> <span class="mi">20</span> <span class="k">THEN</span> <span class="s1">'10-20'</span>
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">20</span> <span class="k">AND</span> <span class="mi">30</span> <span class="k">THEN</span> <span class="s1">'20-30'</span>
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">30</span> <span class="k">AND</span> <span class="mi">40</span> <span class="k">THEN</span> <span class="s1">'30-40'</span>
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">40</span> <span class="k">AND</span> <span class="mi">50</span> <span class="k">THEN</span> <span class="s1">'40-50'</span>
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">50</span> <span class="k">AND</span> <span class="mi">60</span> <span class="k">THEN</span> <span class="s1">'50-60'</span>
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">60</span> <span class="k">AND</span> <span class="mi">70</span> <span class="k">THEN</span> <span class="s1">'60-70'</span>
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">70</span> <span class="k">AND</span> <span class="mi">80</span> <span class="k">THEN</span> <span class="s1">'70-80'</span>
+                    <span class="k">WHEN</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">80</span> <span class="k">AND</span> <span class="mi">90</span> <span class="k">THEN</span> <span class="s1">'80-90'</span>
+                    <span class="k">ELSE</span> <span class="s1">'90 and above'</span>
+                <span class="k">END</span> <span class="k">AS</span> <span class="n">age_group</span><span class="p">,</span>
+                <span class="n">depression</span>
+            <span class="k">FROM</span> <span class="n">smmh</span>
+        <span class="p">)</span>
+        <span class="k">SELECT</span> <span class="n">age_group</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">depression</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_depression</span>
+        <span class="k">FROM</span> <span class="n">age_groups</span>
+        <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">age_group</span>
+        <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_depression</span> <span class="k">DESC</span><span class="p">;</span>
+      </code>
+    </pre>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Age Group</th>
+      <th>Average Depression</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>90 and above</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>60-70</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>50-60</td>
+      <td>1.88</td>
+    </tr>
+    <tr>
+      <td>40-50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>30-40</td>
+      <td>2.42</td>
+    </tr>
+    <tr>
+      <td>20-30</td>
+      <td>3.54</td>
+    </tr>
+    <tr>
+      <td>10-20</td>
+      <td>3.39</td>
+    </tr>
+  </tbody>
+</table>
+<p>Accurately interpreting the dataset requires recognizing potential outliers. The lone respondent over 90 with a depression score of 5 heavily influenced the results, but removing this anomaly uncovered meaningful trends. Depression levels were highest among teenagers (3.39) and young adults in their 20s (3.54), likely driven by academic stress, career uncertainty, and social pressures. In contrast, individuals aged 50-60 reported the lowest depression scores (1.88), possibly reflecting greater emotional resilience and life stability. Interestingly, despite active digital engagement, this group maintained better mental well-being, suggesting that factors beyond screen time—such as life experience and coping mechanisms—play a crucial role. These insights highlight the complex relationship between age, mental health, and digital habits, emphasizing the need for targeted mental health interventions.</p>
 
-<span class="k">SELECT</span>
-    <span class="k">CASE</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">10</span> <span class="k">AND</span> <span class="mi">20</span> <span class="k">THEN</span> <span class="s1">'10-20'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">20</span> <span class="k">AND</span> <span class="mi">30</span> <span class="k">THEN</span> <span class="s1">'20-30'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">30</span> <span class="k">AND</span> <span class="mi">40</span> <span class="k">THEN</span> <span class="s1">'30-40'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">40</span> <span class="k">AND</span> <span class="mi">50</span> <span class="k">THEN</span> <span class="s1">'40-50'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">50</span> <span class="k">AND</span> <span class="mi">60</span> <span class="k">THEN</span> <span class="s1">'50-60'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">60</span> <span class="k">AND</span> <span class="mi">70</span> <span class="k">THEN</span> <span class="s1">'60-70'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">70</span> <span class="k">AND</span> <span class="mi">80</span> <span class="k">THEN</span> <span class="s1">'70-80'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">80</span> <span class="k">AND</span> <span class="mi">90</span> <span class="k">THEN</span> <span class="s1">'80-90'</span>
-        <span class="k">ELSE</span> <span class="s1">'90 and above'</span>
-    <span class="k">END</span> <span class="k">AS</span> <span class="n">age_group</span><span class="p">,</span>
-    <span class="k">AVG</span><span class="p">(</span><span class="n">DEPRESSION</span><span class="p">)</span> <span class="k">AS</span> <span class="n">total</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">age_group</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">total</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>Understanding the dataset nuances is crucial for accurate interpretation. While a single respondent over 90 with a maximum depression score of 5 skewed our results, excluding this outlier revealed insightful trends. Teenagers and those in their 20s exhibited the highest depression scores, averaging 3.39 and 3.54, respectively. This aligns with expectations, considering the tumultuous nature of this life stage, societal pressures, and future uncertainties. Conversely, the 50-60 age group displayed the lowest depression scores, potentially reflecting their accquired resilience. Notably, despite their active engagement with an average of 2.88 apps, they maintained positive mental health. These findings underscore the multifaceted relationship between age, mental health, and digital engagement, warranting further exploration.</p>
+<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/ages%20vs%20stress.png" alt="" /></p>
 
-<p><img src="https://images.stockcake.com/public/f/0/8/f0825676-e186-4225-a5e2-35154161cd2e_large/joyful-social-browsing-stockcake.jpg" alt="" /></p>
+<div class="language-sql highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight">
+      <code>
+        <span class="c1">-- 5: PLATFORM USAGE & SLEEPLESSNESS</span>
+        <span class="k">SELECT</span> 
+            <span class="k">CASE</span> 
+                <span class="k">WHEN</span> <span class="n">no_of_platforms</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">THEN</span> <span class="s1">'Less than 2'</span>
+                <span class="k">WHEN</span> <span class="n">no_of_platforms</span> <span class="k">BETWEEN</span> <span class="mi">2</span> <span class="k">AND</span> <span class="mi">5</span> <span class="k">THEN</span> <span class="s1">'2 to 5'</span>
+                <span class="k">ELSE</span> <span class="s1">'More than 5'</span>
+            <span class="k">END</span> <span class="k">AS</span> <span class="n">platform_usage</span><span class="p">,</span>
+            <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">sleeplessness</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_sleeplessness</span>
+        <span class="k">FROM</span> <span class="n">smmh</span>
+        <span class="k">GROUP BY</span> <span class="n">platform_usage</span>
+        <span class="k">ORDER BY</span> <span class="n">avg_sleeplessness</span> <span class="k">DESC</span><span class="p">;</span>
+      </code>
+    </pre>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Platform Usage</th>
+      <th>Avg Sleeplessness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>More than 5</td>
+      <td>3.69</td>
+    </tr>
+    <tr>
+      <td>Less than 2</td>
+      <td>3.16</td>
+    </tr>
+    <tr>
+      <td>2 to 5</td>
+      <td>3.02</td>
+    </tr>
+  </tbody>
+</table>
+<p> The analysis of platform usage and its impact on sleeplessness reveals notable trends. Individuals who used more than 5 platforms had the highest average sleeplessness score of 3.69, suggesting a strong correlation between increased platform usage and poorer sleep quality. Conversely, those with fewer than 2 platforms reported a slightly lower average sleeplessness of 3.16, while those with 2 to 5 platforms experienced the least severe sleeplessness with an average score of 3.02. This suggests that excessive engagement with multiple platforms negatively affects sleep, supporting the notion that more screen time—especially across multiple apps—leads to poorer sleep quality.</p>
+<p><img src=" https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/app%20vs%20sleep%20(1).png" alt="" /></p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 4: NUMBER OF PLATFORMS USED &amp; SLEEP QUALITY</span>
-<span class="k">SELECT</span> <span class="n">NumberofSocialMediaPlatforms</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Sleeplessness</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_sleeplessness</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NumberofSocialMediaPlatforms</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_sleeplessness</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>The rationale behind this specific analysis was straightforward: examining our habits of using smartphones before bedtime. My hypothesis was that individuals with a higher number of social media applications would tend to stay up later engaging with them. As anticipated, having between 6 and 9 active social media platforms proved to have a negative impact on sleep quality. The average scores for sleeplessness in these groups ranged from 3.5 to 3.9. Conversely, individuals with fewer apps experienced better sleep, with average sleeplessness scores ranging from 2.7 to 3.1.</p>
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 5: ORGANIZATION TYPE AND LEVEL OF DISTRACTION</span>
 <span class="k">SELECT</span> <span class="n">Organization</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Distraction</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_dist</span>
 <span class="k">FROM</span> <span class="n">smmh</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Organization</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_dist</span> <span class="k">DESC</span><span class="p">;</span>
 </code></pre></div></div>
-<p>Likewise, my approach to this analysis was informed by practical experience. I speculated that within various organizations, some would naturally afford more leisure time for individuals to log onto their apps and become distracted. Conversely, workplaces typically uphold codes of conduct and a sense of professionalism, leading me to hypothesize that levels of distraction would be lower in these settings. My hypothesis was validated, as individuals in school and university reported higher levels of distraction, with scores of 3 and 3.5, respectively. This stands in stark contrast to those employed in government positions, who reported an average distraction score of 2.2.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Organization</th>
+      <th>Avg_Dist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>University</td>
+      <td>3.5422</td>
+    </tr>
+    <tr>
+      <td>School</td>
+      <td>3.0370</td>
+    </tr>
+    <tr>
+      <td>Company</td>
+      <td>2.8981</td>
+    </tr>
+    <tr>
+      <td>Government</td>
+      <td>2.2222</td>
+    </tr>
+  </tbody>
+</table>
+<p>Based on my practical experience, I hypothesized that the nature of one's workplace or educational setting would significantly influence levels of distraction. I speculated that environments with more flexibility, such as schools and universities, would afford individuals more opportunities to engage with their apps, resulting in higher distraction levels. As expected, individuals in these settings reported higher levels of distraction, with average scores of 3.5 and 3.0, respectively. On the other hand, individuals in more structured environments, like government positions, reported lower distraction levels, with an average score of 2.2. This suggests that workplace norms and expectations play a significant role in limiting or encouraging distraction</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 6: NUMBER OF SOCIAL MEDIA APPS &amp; RELATIONSHIP STATUS</span>
-<span class="k">SELECT</span> <span class="n">RelationshipStatus</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">NumberofSocialMediaPlatforms</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_apps</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">RelationshipStatus</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_apps</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>The outcome may have initially contradicted my expectations, as individuals in relationships had the highest number of apps. However, upon deeper reflection and considering the data again, this finding becomes more understandable. It’s plausible that this group, likely belonging to a younger demographic, is more tech-savvy and accustomed to using various apps. This generational inclination towards technology could explain the results. While this insight is intriguing, further investigation into the underlying factors driving app usage among individuals in relationships would be worthwhile.</p>
+<div class="language-sql highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight">
+      <code>
+        <span class="c1">-- 6: Spend hours of Social Media Usage &amp; Its Effect on Mental Health</span>
+        <span class="k">SELECT</span> 
+            <span class="k">CASE</span> 
+                <span class="k">WHEN</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">hours_spent</span><span class="p">))</span> <span class="o">=</span> <span class="s1">'more than 5'</span> <span class="k">THEN</span> <span class="s1">'&gt; 5 hours'</span>
+                <span class="k">WHEN</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">hours_spent</span><span class="p">))</span> <span class="o">=</span> <span class="s1">'2 to 5'</span> <span class="k">THEN</span> <span class="s1">'up to 5 hours'</span>
+                <span class="k">WHEN</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">hours_spent</span><span class="p">))</span> <span class="o">=</span> <span class="s1">'less than 2'</span> <span class="k">THEN</span> <span class="s1">'&lt; 2 hours'</span>
+                <span class="k">ELSE</span> <span class="s1">'Unknown'</span>  <span class="c1">-- In case there are any unexpected values</span>
+            <span class="k">END</span> <span class="k">AS</span> <span class="n">max_usage_time</span>, 
+            <span class="k">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">anxiety</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_anxiety</span>, 
+            <span class="k">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">depression</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_depression</span>, 
+            <span class="k">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">sleeplessness</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_sleeplessness</span>
+        <span class="k">FROM</span> <span class="n">smmh</span>
+        <span class="k">GROUP BY</span> <span class="n">max_usage_time</span> 
+        <span class="k">ORDER BY</span> <span class="n">avg_sleeplessness</span> <span class="k">DESC</span><span class="p">;</span>
+      </code>
+    </pre>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Peak Usage Time</th>
+      <th>Average Anxiety</th>
+      <th>Average Depression</th>
+      <th>Average Sleeplessness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>more than 5 hours</td>
+      <td>4.03</td>
+      <td>3.79</td>
+      <td>3.47</td>
+    </tr>
+    <tr>
+      <td>2 to 5 hours</td>
+      <td>3.66</td>
+      <td>3.32</td>
+      <td>3.26</td>
+    </tr>
+    <tr>
+      <td>less than 2 hours</td>
+      <td>2.83</td>
+      <td>2.54</td>
+      <td>2.77</td>
+    </tr>
+  </tbody>
+</table>
+<p>The findings indicate a clear correlation between the amount of time spent on social media and increased mental health concerns. Individuals who reported using social media for more than 5 hours a day had the highest average anxiety (4.03), depression (3.79), and sleeplessness (3.47). In contrast, those using social media for less than 2 hours exhibited lower scores across all metrics, with anxiety at 2.83, depression at 2.54, and sleeplessness at 2.77. These results suggest that prolonged social media usage could contribute to higher levels of mental health issues, reinforcing the importance of moderating screen time for well-being.</p>
+
+<div class="language-sql highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight">
+      <code>
+        <span class="c1">-- 7: Validation-Seeking Behavior &amp; Its Link to Depression &amp; Self-Comparison</span>
+        <span class="k">SELECT</span> 
+            <span class="n">validation_seeking</span>, 
+            <span class="k">AVG</span><span class="p">(</span><span class="n">depression</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_depression</span>, 
+            <span class="k">AVG</span><span class="p">(</span><span class="n">self_comparison</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_self_comparison</span> 
+        <span class="k">FROM</span> <span class="n">smmh</span> 
+        <span class="k">GROUP BY</span> <span class="n">validation_seeking</span> 
+        <span class="k">ORDER BY</span> <span class="n">avg_depression</span> <span class="k">DESC</span><span class="p">;</span>
+      </code>
+    </pre>
+  </div>
+</div>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Validation Seeking</th>
+      <th>Average Depression</th>
+      <th>Average Self-Comparison</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5</td>
+      <td>3.8889</td>
+      <td>3.8148</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>3.8434</td>
+      <td>3.6265</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>3.3033</td>
+      <td>3.0820</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3.1546</td>
+      <td>2.6907</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2.8600</td>
+      <td>2.1000</td>
+    </tr>
+  </tbody>
+</table>
+<p>The data reveals a clear correlation between validation-seeking behavior and higher levels of both depression and self-comparison. Individuals with a stronger desire for external validation (scoring higher on the validation-seeking scale) tend to report higher average depression and self-comparison scores. Specifically, those who rated themselves as a 5 in validation-seeking exhibited the highest levels of depression (3.8889) and self-comparison (3.8148). In contrast, individuals with a lower need for validation, such as those who scored a 1, experienced notably lower levels of depression (2.8600) and self-comparison (2.1000). This suggests that an intense need for validation may exacerbate mental health concerns, particularly related to self-worth and comparison with others.</p>
 
 <h2 id="recommendations">Recommendations:</h2>
-<p>Based on the analysis of the effect of social media on mental health, here are three recommendations:</p>
+<p>Based on the analysis of the impact of social media on mental health, here are some recommendations:</p>
 
 <ol>
   <li>
-    <p><strong>Promote Digital Wellbeing Education</strong>: Given the observed negative impact of excessive social media usage on sleep quality, organizations and educational institutions should prioritize digital wellbeing education. It was their students who scored poorly in these areas. Providing resources and workshops on healthy smartphone usage habits, including setting boundaries and limiting screen time before bedtime, can empower individuals to maintain better sleep hygiene and overall mental wellness.</p>
+    <p><strong> Limit Social Media Usage for Better Mental Health </strong>: Individuals who use more than five social media platforms show the highest levels of anxiety, depression, and sleeplessness. Limiting social media engagement to fewer platforms or setting time limits could help reduce these negative mental health impacts.</p>
   </li>
   <li>
-    <p><strong>Tailor Support Programs for Vulnerable Groups</strong>: Recognizing that single individuals exhibited higher levels of anxiety, targeted support programs should be developed to address their specific needs. These programs could include counseling services, support groups, and stress management techniques tailored to address the unique challenges faced by single individuals.</p>
+    <p><strong> Focus on Digital Wellbeing in Younger Age Groups </strong>: Younger individuals, particularly teenagers and those in their 20s, reported the highest levels of depression and anxiety. Digital wellbeing programs aimed at reducing excessive social media usage for this group could improve their mental health outcomes.</p>
   </li>
   <li>
-    <p><strong>Encourage Balanced Digital Engagement Across Age Groups</strong>: While younger age groups displayed higher depression scores and engaged with multiple social media platforms, older individuals demonstrated lower depression scores despite active digital engagement. Encouraging balanced digital engagement and promoting activities and social events among younger age groups may help reduce the negative effects of social media on mental health.</p>
+    <p><strong> Encourage Balanced Use Across All Age Groups </strong>: Older age groups, while engaging with multiple social media platforms, reported lower levels of depression and anxiety. Promoting balanced digital engagement across age groups could help mitigate the adverse effects of social media usage, particularly among younger users.</p>
+  </li>
+  <li>
+    <p><strong> Support for Single Individuals to Address Higher Anxiety </strong>: Single individuals reported higher anxiety compared to married individuals. Offering targeted support for this group, such as stress management workshops and mental health resources, can help alleviate their anxiety.</p>
+  </li>
+  <li>
+    <p><strong> Promote Offline Activities to Reduce Distraction in Workplaces </strong>: People working in schools and universities, environments with fewer distractions, report higher levels of mental health concerns. Encouraging offline activities and better work-life balance could help reduce digital distractions and improve overall mental wellbeing.</p>
   </li>
 </ol>
-
-
-      
-      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-        This site is open source. <a href="https://github.com/JimRossiter/JimRossiter.github.io/edit/main/projects/socialmedia.md">Improve this page</a>.
-      </div>
-      
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
-  </body>
-</html>
