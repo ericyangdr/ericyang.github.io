@@ -5,39 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Warehouse Sales vs. Retail Sales Analysis | Eric Yang</title>
-<meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="Warehouse Sales vs. Retail Sales Analysis" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://ericyangdr.github.io/projects/06.html" />
-<meta property="og:url" content="https://ericyangdr.github.io/projects/06.html" />
-<meta property="og:site_name" content="Eric Yang" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Warehouse Sales vs. Retail Sales Analysis" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","headline":"Warehouse Sales vs. Retail Sales Analysis","url":"https://ericyangdr.github.io/projects/06.html"}</script>
-<!-- End Jekyll SEO tag -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>Warehouse Sales vs. Retail Sales Analysis | Eric Yang</title>
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Warehouse Sales vs. Retail Sales Analysis" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://ericyangdr.github.io/projects/06.html" />
+    <meta property="og:url" content="https://ericyangdr.github.io/projects/06.html" />
+    <meta property="og:site_name" content="Eric Yang" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Warehouse Sales vs. Retail Sales Analysis" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","headline":"Warehouse Sales vs. Retail Sales Analysis","url":"https://ericyangdr.github.io/projects/06.html"}</script>
+    <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=c9ceaf7af3e0f58f04dfbf6099defaa70cb93d6b">
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-
-<!-- Setup Google Analytics -->
-
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
-
-<!-- end custom head snippets -->
-
     <!-- Responsive Iframe CSS -->
     <style>
       .iframe-container {
         position: relative;
-        overflow: hidden;
         width: 100%;
-        padding-top: 75%; /* Aspect ratio (4:3) for the iframe */
+        overflow: hidden;
+        margin: 20px 0; /* Add some spacing around the iframe */
       }
+
       .iframe-container iframe {
         position: absolute;
         top: 0;
@@ -45,6 +37,19 @@
         width: 100%;
         height: 100%;
         border: none;
+      }
+
+      /* Adjust aspect ratio for smaller screens */
+      @media (max-width: 768px) {
+        .iframe-container {
+          padding-top: 100%; /* Square aspect ratio for mobile */
+        }
+      }
+
+      @media (min-width: 769px) {
+        .iframe-container {
+          padding-top: 75%; /* 4:3 aspect ratio for desktop/tablet */
+        }
       }
     </style>
   </head>
@@ -55,111 +60,122 @@
       
 
       <h1 id="warehouse-sales-vs-retail-sales-analysis">Warehouse Sales vs. Retail Sales Analysis</h1>
-<p><em></em></p>
+      <p><em></em></p>
 
-<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/retail%20sales%20analysis.png" /></p>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/retail%20sales%20analysis.png" /></p>
 
-<h2 id="Background">Background</h2>
-<p>This project analyzes warehouse and retail sales data to evaluate the efficiency and contribution of sales channels, item types, and suppliers. The goal was to identify trends and patterns in sales performance over time and across categories. The dataset was sourced from GitHub, which I found while searching for data to practice my Excel analysis skills. I used Excel for the entire process, from data cleaning to visualization. You can download the full data <a href="https://github.com/ericyangdr/ericyangdr.github.io/raw/main/Retail%20vs%20warehouse%20sales%20analysis%20dashboard.zip" download>
-    HERE
-</a>.</p>
+      <h2 id="Background">Background</h2>
+      <p>This project analyzes warehouse and retail sales data to evaluate the efficiency and contribution of sales channels, item types, and suppliers. The goal was to identify trends and patterns in sales performance over time and across categories. The dataset was sourced from GitHub, which I found while searching for data to practice my Excel analysis skills. I used Excel for the entire process, from data cleaning to visualization. You can download the full data <a href="https://github.com/ericyangdr/ericyangdr.github.io/raw/main/Retail%20vs%20warehouse%20sales%20analysis%20dashboard.zip" download>
+          HERE
+      </a>.</p>
 
-<h2 id="objectives">Objectives</h2>
-<p>The key objectives of this analysis were:</p>
-<ol>
-  <li>To evaluate the efficiency and contribution of sales channels (retail vs. warehouse), item types, and suppliers.</li>
-  <li>To analyze trends and patterns in sales performance over time and across categories.</li>
-  <li>To identify underperforming areas and provide actionable recommendations for improvement.</li>
-</ol>
+      <h2 id="objectives">Objectives</h2>
+      <p>The key objectives of this analysis were:</p>
+      <ol>
+        <li>To evaluate the efficiency and contribution of sales channels (retail vs. warehouse), item types, and suppliers.</li>
+        <li>To analyze trends and patterns in sales performance over time and across categories.</li>
+        <li>To identify underperforming areas and provide actionable recommendations for improvement.</li>
+      </ol>
 
-<h2 id="data-cleaning--transformation">Data Cleaning & Transformation</h2>
-<p>The first step was to prepare the data for analysis. Here’s how I approached it:</p>
-<ol>
-  <li><strong>Removing Duplicates</strong>: I used Excel’s “Remove Duplicates” tool to ensure there were no duplicate entries in the dataset.</li>
-  <li><strong>Handling Missing Values</strong>: I applied filters to identify and address missing values, ensuring the dataset was complete.</li>
-  <li><strong>Formatting Columns</strong>: I standardized the data by changing the format of sales columns to currency and adding a new column for “Total Sales” calculations.</li>
-  <li><strong>Linking Sheets</strong>: I linked multiple sheets to build pivot tables for deeper analysis.</li>
-</ol>
-<p>This process was challenging, especially when dealing with missing values, duplicates, and formatting errors, but it was essential to ensure the accuracy of the analysis.</p>
-<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/data%20cleaning.png" /></p>
+      <h2 id="data-cleaning--transformation">Data Cleaning & Transformation</h2>
+      <p>The first step was to prepare the data for analysis. Here’s how I approached it:</p>
+      <ol>
+        <li><strong>Removing Duplicates</strong>: I used Excel’s “Remove Duplicates” tool to ensure there were no duplicate entries in the dataset.</li>
+        <li><strong>Handling Missing Values</strong>: I applied filters to identify and address missing values, ensuring the dataset was complete.</li>
+        <li><strong>Formatting Columns</strong>: I standardized the data by changing the format of sales columns to currency and adding a new column for “Total Sales” calculations.</li>
+        <li><strong>Linking Sheets</strong>: I linked multiple sheets to build pivot tables for deeper analysis.</li>
+      </ol>
+      <p>This process was challenging, especially when dealing with missing values, duplicates, and formatting errors, but it was essential to ensure the accuracy of the analysis.</p>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/data%20cleaning.png" /></p>
 
-<h2 id="data-analysis">Data Analysis</h2>
-<p>To achieve the objectives, I asked myself the following questions:</p>
-<ul>
-  <li>Which sales channel (retail or warehouse) performs better for each item type?</li>
-  <li>Which suppliers contribute the most to sales?</li>
-  <li>Are there underperforming item types in retail or warehouse channels?</li>
-  <li>How do total sales fluctuate month-to-month in 2020?</li>
-  <li>What is the monthly performance of retail vs. warehouse sales?</li>
-  <li>Which item types generate the highest total sales?</li>
-  <li>What is the balance between retail sales and transfers?</li>
-</ul>
-<p>Using pivot tables, I analyzed:</p>
-<ul>
-  <li>Total sales by channel</li>
-  <li>Total sales by month</li>
-  <li>Total sales by product</li>
-  <li>Top 10 supplier sales</li>
-  <li>Monthly retail vs. warehouse sales</li>
-  <li>Monthly retail sales vs. retail transfers</li>
-  <li>Highest and lowest sales products</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/question.png" /></p>
+      <h2 id="data-analysis">Data Analysis</h2>
+      <p>To achieve the objectives, I asked myself the following questions:</p>
+      <ul>
+        <li>Which sales channel (retail or warehouse) performs better for each item type?</li>
+        <li>Which suppliers contribute the most to sales?</li>
+        <li>Are there underperforming item types in retail or warehouse channels?</li>
+        <li>How do total sales fluctuate month-to-month in 2020?</li>
+        <li>What is the monthly performance of retail vs. warehouse sales?</li>
+        <li>Which item types generate the highest total sales?</li>
+        <li>What is the balance between retail sales and transfers?</li>
+      </ul>
+      <p>Using pivot tables, I analyzed:</p>
+      <ul>
+        <li>Total sales by channel</li>
+        <li>Total sales by month</li>
+        <li>Total sales by product</li>
+        <li>Top 10 supplier sales</li>
+        <li>Monthly retail vs. warehouse sales</li>
+        <li>Monthly retail sales vs. retail transfers</li>
+        <li>Highest and lowest sales products</li>
+      </ul>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/question.png" /></p>
 
+      <h2 id="insights-explained">Insights Explained</h2>
+      <p>Here are the key findings from the analysis:</p>
+      <ol>
+        <li><strong>Total Sales</strong>: The total sales for the period were <strong>$1,028,499</strong>, with warehouse sales contributing <strong>$824,276</strong> and retail sales contributing <strong>$204,233</strong>. Retail transfers accounted for <strong>$196,910</strong>.</li>
+        <li><strong>Monthly Performance</strong>: Sales data was available for four months (January, March, July, and September). July had the highest sales, followed by January, while September had the lowest sales.</li>
+        <li><strong>Product Performance</strong>: Beer was the highest-contributing product, followed by wine. Dunnage was the lowest-performing product.</li>
+        <li><strong>Retail Sales vs. Transfers</strong>: Retail sales and retail transfers were almost equal, indicating a balanced flow of goods.</li>
+        <li><strong>Supplier Contribution</strong>: Anheuser-Busch Inc. was the top-contributing supplier. The top 10 suppliers were identified and included in the dashboard.</li>
+      </ol>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Pivot%20table.png" /></p>
 
-<h2 id="insights-explained">Insights Explained</h2>
-<p>Here are the key findings from the analysis:</p>
-<ol>
-  <li><strong>Total Sales</strong>: The total sales for the period were <strong>$1,028,499</strong>, with warehouse sales contributing <strong>$824,276</strong> and retail sales contributing <strong>$204,233</strong>. Retail transfers accounted for <strong>$196,910</strong>.</li>
-  <li><strong>Monthly Performance</strong>: Sales data was available for four months (January, March, July, and September). July had the highest sales, followed by January, while September had the lowest sales.</li>
-  <li><strong>Product Performance</strong>: Beer was the highest-contributing product, followed by wine. Dunnage was the lowest-performing product.</li>
-  <li><strong>Retail Sales vs. Transfers</strong>: Retail sales and retail transfers were almost equal, indicating a balanced flow of goods.</li>
-  <li><strong>Supplier Contribution</strong>: Anheuser-Busch Inc. was the top-contributing supplier. The top 10 suppliers were identified and included in the dashboard.</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Pivot%20table.png" /></p>
+      <h2 id="dashboard-visualization">Dashboard (Visualization)</h2>
+      <p>I created two dashboards to present the insights clearly:</p>
+      <ol>
+        <li><strong>Sales Overview Dashboard</strong>:
+          <ul>
+            <li><strong>KPIs</strong>: Four cards displayed key metrics—Total Sales, Warehouse Sales, Retail Sales, and Retail Transfers.</li>
+            <li><strong>Visuals</strong>: Line charts for sales by month, bar charts for sales by channel and item types, and a column chart for retail sales vs. retail transfers.</li>
+            <li><strong>Slicers</strong>: Added slicers on the left side for interactive filtering.</li>
+          </ul>
+        </li>
+        <li><strong>Contribution Overview Dashboard</strong>:
+          <ul>
+            <li><strong>Visuals</strong>: Pie charts for contribution by sales channel and item types, and bar charts for the top 10 suppliers.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>All visualizations were designed to be clean, coherent, and easy to understand, following best practices learned from my training.</p>
 
+      <!-- Responsive Iframe Wrapper -->
+      <div class="iframe-container">
+        <iframe frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=3A850A01399E06C5%21121&authkey=%21AJNT3OmwtMmNIRA&em=2&AllowTyping=True&ActiveCell='Sales%20Dashboard'!A1&Item='Sales%20Dashboard'!Print_Area&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+      </div>
 
-<h2 id="dashboard-visualization">Dashboard (Visualization)</h2>
-<p>I created two dashboards to present the insights clearly:</p>
-<ol>
-  <li><strong>Sales Overview Dashboard</strong>:
-    <ul>
-      <li><strong>KPIs</strong>: Four cards displayed key metrics—Total Sales, Warehouse Sales, Retail Sales, and Retail Transfers.</li>
-      <li><strong>Visuals</strong>: Line charts for sales by month, bar charts for sales by channel and item types, and a column chart for retail sales vs. retail transfers.</li>
-      <li><strong>Slicers</strong>: Added slicers on the left side for interactive filtering.</li>
-    </ul>
-  </li>
-  <li><strong>Contribution Overview Dashboard</strong>:
-    <ul>
-      <li><strong>Visuals</strong>: Pie charts for contribution by sales channel and item types, and bar charts for the top 10 suppliers.</li>
-    </ul>
-  </li>
-</ol>
-<p>All visualizations were designed to be clean, coherent, and easy to understand, following best practices learned from my training.</p>
+      <div class="iframe-container">
+        <iframe frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=3A850A01399E06C5%21121&authkey=%21AJNT3OmwtMmNIRA&em=2&AllowTyping=True&ActiveCell='Contribution%20Dashboard'!A1&Item='Contribution%20Dashboard'!Print_Area&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+      </div>
 
-<!-- Responsive Iframe Wrapper -->
-<div class="iframe-container">
-  <iframe frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=3A850A01399E06C5%21121&authkey=%21AJNT3OmwtMmNIRA&em=2&AllowTyping=True&ActiveCell='Sales%20Dashboard'!A1&Item='Sales%20Dashboard'!Print_Area&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>
-</div>
-<br>
-<div class="iframe-container">
-  <iframe frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=3A850A01399E06C5%21121&authkey=%21AJNT3OmwtMmNIRA&em=2&AllowTyping=True&ActiveCell='Contribution%20Dashboard'!A1&Item='Contribution%20Dashboard'!Print_Area&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>
-</div>
+      <h2 id="recommendations">Recommendations</h2>
+      <p>Based on the analysis, here are my recommendations:</p>
+      <ol>
+        <li><strong>Focus on High-Performing Products</strong>: Beer and wine are the top-selling products. Allocate more resources to these categories to maximize revenue.</li>
+        <li><strong>Optimize Underperforming Products</strong>: Dunnage had the lowest sales. Investigate why and consider strategies to improve its performance, such as promotions or bundling with high-demand products.</li>
+        <li><strong>Leverage Top Suppliers</strong>: Strengthen relationships with top suppliers like Anheuser-Busch Inc. to ensure consistent supply and negotiate better terms.</li>
+        <li><strong>Improve Warehouse Efficiency</strong>: Since warehouse sales dominate, ensure warehouses are operating at peak efficiency to maintain this performance.</li>
+        <li><strong>Boost Retail Sales</strong>: Although retail sales are lower than warehouse sales, they are still significant. Implement targeted marketing campaigns to increase retail sales.</li>
+        <li><strong>Seasonal Strategies</strong>: July and January are high-performing months. Plan inventory and marketing efforts to capitalize on these peak periods.</li>
+      </ol>
 
-<h2 id="recommendations">Recommendations</h2>
-<p>Based on the analysis, here are my recommendations:</p>
-<ol>
-  <li><strong>Focus on High-Performing Products</strong>: Beer and wine are the top-selling products. Allocate more resources to these categories to maximize revenue.</li>
-  <li><strong>Optimize Underperforming Products</strong>: Dunnage had the lowest sales. Investigate why and consider strategies to improve its performance, such as promotions or bundling with high-demand products.</li>
-  <li><strong>Leverage Top Suppliers</strong>: Strengthen relationships with top suppliers like Anheuser-Busch Inc. to ensure consistent supply and negotiate better terms.</li>
-  <li><strong>Improve Warehouse Efficiency</strong>: Since warehouse sales dominate, ensure warehouses are operating at peak efficiency to maintain this performance.</li>
-  <li><strong>Boost Retail Sales</strong>: Although retail sales are lower than warehouse sales, they are still significant. Implement targeted marketing campaigns to increase retail sales.</li>
-  <li><strong>Seasonal Strategies</strong>: July and January are high-performing months. Plan inventory and marketing efforts to capitalize on these peak periods.</li>
-</ol>
-
-<h2 id="conclusion">Conclusion</h2>
-<p>This project was an excellent opportunity to apply my Excel skills to real-world data. I successfully cleaned and transformed raw data, analyzed it to uncover valuable insights, and created interactive dashboards to visualize the findings. The experience has boosted my confidence in data analysis and reinforced the importance of data-driven decision-making. I look forward to tackling more complex datasets and continuing my growth as a data analyst.</p>
+      <h2 id="conclusion">Conclusion</h2>
+      <p>This project was an excellent opportunity to apply my Excel skills to real-world data. I successfully cleaned and transformed raw data, analyzed it to uncover valuable insights, and created interactive dashboards to visualize the findings. The experience has boosted my confidence in data analysis and reinforced the importance of data-driven decision-making. I look forward to tackling more complex datasets and continuing my growth as a data analyst.</p>
 
     </div>
+
+    <!-- JavaScript for Dynamic Resizing -->
+    <script>
+      // Function to resize iframes dynamically
+      function resizeIframe(iframe) {
+        iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px';
+      }
+
+      // Apply to all iframes
+      document.querySelectorAll('.iframe-container iframe').forEach(iframe => {
+        iframe.onload = () => resizeIframe(iframe);
+      });
+    </script>
   </body>
 </html>
