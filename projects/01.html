@@ -1,852 +1,248 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Sales Channel Analysis for New Products</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-default_background {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.highlight-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.block-color-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: undefined; }
-.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
-.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
-.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
-.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
-.select-value-color-transparentGray { background-color: undefined; }
-.select-value-color-translucentGray { background-color: undefined; }
-.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
-.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
-.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
-.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
-.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="1980c2b0-beb8-803a-8d6b-c2166480ce49" class="page sans"><header><h1 class="page-title">Sales Channel Analysis for New Products</h1><p class="page-description"></p></header><div class="page-body"><figure id="1990c2b0-beb8-807e-8690-efaa31fec6f5" class="image"><a href="image_50.jpg"><img style="width:709.9750366210938px" src="image_50.jpg"/></a></figure><h1 id="1980c2b0-beb8-8091-be24-cf77e6e38e39" class="">Report Outline</h1><h2 id="1980c2b0-beb8-8033-9160-c21fc1b3dfb6" class="">1. Data Validation</h2><ul id="1980c2b0-beb8-8001-ac02-ce659ddc0b50" class="bulleted-list"><li style="list-style-type:disc">Provide an overview of the validation and cleaning procedures applied to each column in the dataset to ensure data integrity.</li></ul><h2 id="1980c2b0-beb8-80f1-9fc5-f09dfcb09bc5" class="">2. Exploratory Data Analysis</h2><ul id="1980c2b0-beb8-8013-9239-de0f7d5554bd" class="bulleted-list"><li style="list-style-type:disc">Present two distinct visualizations that focus on individual variables to highlight key characteristics of the data.</li></ul><ul id="1980c2b0-beb8-804d-ae01-c8b283e39830" class="bulleted-list"><li style="list-style-type:disc">Include at least one graphic that explores the relationship between two or more variables, demonstrating how features interact with each other.</li></ul><ul id="1980c2b0-beb8-80fa-a136-d679ab04a23a" class="bulleted-list"><li style="list-style-type:disc">Summarize the insights gathered from the visual analysis, explaining any patterns or anomalies discovered.</li></ul><h2 id="1980c2b0-beb8-804f-8b01-d869de08b8d0" class="">3. Definition of Key Metrics for Business Monitoring</h2><ul id="1980c2b0-beb8-80cb-bd76-ea5d6bb1aebb" class="bulleted-list"><li style="list-style-type:disc">Define a specific metric that the business can use to track and address the problem at hand.</li></ul><ul id="1980c2b0-beb8-8090-b368-f0ebf1be5cdc" class="bulleted-list"><li style="list-style-type:disc">Explain how this metric can be applied in business operations and decision-making processes.</li></ul><ul id="1980c2b0-beb8-80df-95e2-cf59768c7748" class="bulleted-list"><li style="list-style-type:disc">Discuss whether it’s possible to estimate initial values for the metric based on the available data.</li></ul><h2 id="1980c2b0-beb8-80e2-a1d3-f8d9db6d6195" class="">4. Final Summary and Recommendations</h2><ul id="1980c2b0-beb8-807f-9eda-e3d68d0b2c72" class="bulleted-list"><li style="list-style-type:disc">Provide a comprehensive conclusion that includes actionable recommendations for the business based on the analysis.</li></ul><ul id="1980c2b0-beb8-80df-86cd-eec907ebde4a" class="bulleted-list"><li style="list-style-type:disc">Suggest strategic steps the business can take to address the identified problem and improve performance.</li></ul><p id="1990c2b0-beb8-8086-bb8b-e05d8a80e9df" class="">
-</p><figure id="1990c2b0-beb8-8038-b048-ffe991ca51b8" class="image"><a href="Frame_1000003989.jpg"><img style="width:709.9625244140625px" src="Frame_1000003989.jpg"/></a></figure><h1 id="1980c2b0-beb8-80de-94d0-c81dcdee45c8" class="">1. Introduction</h1><p id="1980c2b0-beb8-80bb-95e9-e1a84454d03c" class="">We recently launched a new line of office stationery aimed at sparking creativity and enhancing brainstorming sessions. To identify the most effective sales strategy for this product line, we tested three different approaches: email outreach, phone calls, and a combination of both. The goal of this analysis is to evaluate the performance of these methods and provide data-driven insights that will help refine our sales approach going forward.</p><p id="1980c2b0-beb8-8021-a318-de82414da039" class="">This report outlines the process of data validation and cleaning, presents key findings from exploratory data analysis, establishes a key metric for continuous business monitoring, and provides strategic recommendations based on the results. By leveraging these insights, we aim to optimize our sales efforts and drive the success of our new product line.</p><p id="1980c2b0-beb8-806b-8892-e5896144d105" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1980c2b0-beb8-8069-965a-e81e6399f379" class="code"><code class="language-Python"># library imports
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-plt.style.use(&#x27;fivethirtyeight&#x27;)
-%matplotlib inline</code></pre><h1 id="1980c2b0-beb8-80ac-8ab2-e261a1440f1e" class="">2. Data Importing and Validation</h1><p id="1980c2b0-beb8-808e-a8d3-d02f2ee973d2" class="">The original dataset consists of 15,000 rows and 8 columns.</p><h3 id="1980c2b0-beb8-80cb-ba60-e8e5efe566b9" class=""><strong>Week Column</strong></h3><p id="1980c2b0-beb8-80be-8fce-e67c9eaa2287" class="">This column contains integer values ranging from 1 to 6, representing the corresponding weeks, with no missing values. No modifications were necessary.</p><h3 id="1980c2b0-beb8-8001-9b67-ce9b796a2cd4" class=""><strong>Sales Method Column</strong></h3><p id="1980c2b0-beb8-8022-bb2a-fb638f224e3f" class="">Initially, this column contained five unique values (Email, Call, Email + Call, em + call, email) instead of the expected three. The inconsistencies were caused by variations in capitalization and abbreviations. After standardizing the values, the column now correctly reflects the three intended sales methods: <strong>Email</strong>, <strong>Call</strong>, and <strong>Email + Call</strong>.</p><h3 id="1980c2b0-beb8-8005-8bec-d06a1e5b7ccb" class=""><strong>Customer ID Column</strong></h3><p id="1980c2b0-beb8-8002-8cc5-f0a983aa38e9" class="">This column consists of unique identifiers for each customer and had no missing values. No adjustments were necessary.</p><h3 id="1980c2b0-beb8-808f-b900-f352cf0a7090" class=""><strong>Revenue Column</strong></h3><p id="1980c2b0-beb8-8029-a87a-f910ab6f07c6" class="">A total of 1,074 values were missing in this column. To address this, I replaced the missing values with the mean revenue for each respective sales method.</p><h3 id="1980c2b0-beb8-8005-a278-f00029a6dc4f" class=""><strong>Years as Customer Column</strong></h3><p id="1980c2b0-beb8-8048-81b1-fe780ed6af28" class="">While this column had no missing values, two rows contained incorrect data. Since the company was founded in 1984, the maximum possible value should be 39 years. However, two entries had values of 47 and 63, which were corrected and replaced with the maximum possible value of 39.</p><h3 id="1980c2b0-beb8-806f-8c48-ed71275c7fec" class=""><strong>Number of Site Visits Column</strong></h3><p id="1980c2b0-beb8-8052-a88c-c042debe504c" class="">This column had no missing values, and all data was valid. No changes were necessary.</p><h3 id="1980c2b0-beb8-8089-9869-e67341d9855b" class=""><strong>State Column</strong></h3><p id="1980c2b0-beb8-8026-855b-f1f14fcbfc6c" class="">This column contained 50 unique values, corresponding to all U.S. states, with no missing values. No modifications were necessary.</p><p id="1980c2b0-beb8-809f-9b10-d34477e6c4a7" class="">After completing the data validation and cleaning process, I also checked for duplicate rows and found none. The cleaned dataset now consists of 15,000 rows and 8 columns, with no missing values.</p><p id="1980c2b0-beb8-807d-985f-d6b7653718f2" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1980c2b0-beb8-8071-ad41-f9db3b317948" class="code"><code class="language-Python"># import data
-sales_data = pd.read_csv(&#x27;product_sales.csv&#x27;)</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1980c2b0-beb8-8013-9064-c1b2221d5f45" class="code"><code class="language-Python">sales_data.head()</code></pre><table id="1980c2b0-beb8-80ce-bde7-f0e072194a9d" class="simple-table"><tbody><tr id="1980c2b0-beb8-80c8-b6fb-ea5daccfee06"><td id="KVtm" class="" style="width:35px"></td><td id="`ulH" class="" style="width:53px"><strong>week</strong></td><td id="Lqi}" class="" style="width:107px"><strong>sales_method</strong></td><td id="BDaU" class=""><strong>customer_id</strong></td><td id="\sn|" class="" style="width:72px"><strong>nb_sold</strong></td><td id="~pfe" class="" style="width:71px"><strong>revenue</strong></td><td id="ZBiC" class="" style="width:80px"><strong>years_as_customer</strong></td><td id=":STM" class="" style="width:75px"><strong>nb_site_visits</strong></td><td id="nGbr" class="" style="width:98px"><strong>state</strong></td></tr><tr id="1980c2b0-beb8-80b7-8469-c1a187211f66"><td id="KVtm" class="" style="width:35px"><strong>0</strong></td><td id="`ulH" class="" style="width:53px">2</td><td id="Lqi}" class="" style="width:107px">Email</td><td id="BDaU" class="">2e72d641-95ac-497b-bbf8-4861764a7097</td><td id="\sn|" class="" style="width:72px">10</td><td id="~pfe" class="" style="width:71px">NaN</td><td id="ZBiC" class="" style="width:80px">0</td><td id=":STM" class="" style="width:75px">24</td><td id="nGbr" class="" style="width:98px">Arizona</td></tr><tr id="1980c2b0-beb8-80ec-9330-e0005699e753"><td id="KVtm" class="" style="width:35px"><strong>1</strong></td><td id="`ulH" class="" style="width:53px">6</td><td id="Lqi}" class="" style="width:107px">Email + Call</td><td id="BDaU" class="">3998a98d-70f5-44f7-942e-789bb8ad2fe7</td><td id="\sn|" class="" style="width:72px">15</td><td id="~pfe" class="" style="width:71px">225.47</td><td id="ZBiC" class="" style="width:80px">1</td><td id=":STM" class="" style="width:75px">28</td><td id="nGbr" class="" style="width:98px">Kansas</td></tr><tr id="1980c2b0-beb8-801e-a6f0-d59f8a35e261"><td id="KVtm" class="" style="width:35px"><strong>2</strong></td><td id="`ulH" class="" style="width:53px">5</td><td id="Lqi}" class="" style="width:107px">Call</td><td id="BDaU" class="">d1de9884-8059-4065-b10f-86eef57e4a44</td><td id="\sn|" class="" style="width:72px">11</td><td id="~pfe" class="" style="width:71px">52.55</td><td id="ZBiC" class="" style="width:80px">6</td><td id=":STM" class="" style="width:75px">26</td><td id="nGbr" class="" style="width:98px">Wisconsin</td></tr><tr id="1980c2b0-beb8-808d-9fab-d7d77721958b"><td id="KVtm" class="" style="width:35px"><strong>3</strong></td><td id="`ulH" class="" style="width:53px">4</td><td id="Lqi}" class="" style="width:107px">Email</td><td id="BDaU" class="">78aa75a4-ffeb-4817-b1d0-2f030783c5d7</td><td id="\sn|" class="" style="width:72px">11</td><td id="~pfe" class="" style="width:71px">NaN</td><td id="ZBiC" class="" style="width:80px">3</td><td id=":STM" class="" style="width:75px">25</td><td id="nGbr" class="" style="width:98px">Indiana</td></tr><tr id="1980c2b0-beb8-803a-9c26-d1c5f5a02060"><td id="KVtm" class="" style="width:35px"><strong>4</strong></td><td id="`ulH" class="" style="width:53px">3</td><td id="Lqi}" class="" style="width:107px">Email</td><td id="BDaU" class="">10e6d446-10a5-42e5-8210-1b5438f70922</td><td id="\sn|" class="" style="width:72px">9</td><td id="~pfe" class="" style="width:71px">90.49</td><td id="ZBiC" class="" style="width:80px">0</td><td id=":STM" class="" style="width:75px">28</td><td id="nGbr" class="" style="width:98px">Illinois</td></tr></tbody></table><p id="1980c2b0-beb8-80d4-bc57-ddd9f98d63a2" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1980c2b0-beb8-80cc-93e1-cccbdbe87dc9" class="code"><code class="language-Python">sales_data.shape</code></pre><p id="1980c2b0-beb8-8037-834c-df5b257c462b" class=""><code>(15000, 8)</code></p><p id="1980c2b0-beb8-8069-acb6-db99b17a5ee8" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1980c2b0-beb8-80fd-8a15-fc35b91b90ca" class="code"><code class="language-Python">sales_data.info()</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1980c2b0-beb8-805b-a56d-c4d408faba70" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&lt;class &#x27;pandas.core.frame.DataFrame&#x27;&gt;
-RangeIndex: 15000 entries, 0 to 14999
-Data columns (total 8 columns):
- #   Column             Non-Null Count  Dtype
----  ------             --------------  -----
- 0   week               15000 non-null  int64
- 1   sales_method       15000 non-null  object
- 2   customer_id        15000 non-null  object
- 3   nb_sold            15000 non-null  int64
- 4   revenue            13926 non-null  float64
- 5   years_as_customer  15000 non-null  int64
- 6   nb_site_visits     15000 non-null  int64
- 7   state              15000 non-null  object
-dtypes: float64(1), int64(4), object(3)
-memory usage: 937.6+ KB</code></pre><p id="1980c2b0-beb8-801c-9466-ce093ca83778" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1980c2b0-beb8-805f-8402-dfd5b94a84aa" class="code"><code class="language-Python">sales_data.describe()</code></pre><table id="1980c2b0-beb8-8025-af35-f4a2406079c3" class="simple-table"><tbody><tr id="1980c2b0-beb8-80d5-b27a-fa5e8aac2380"><td id="@H}w" class=""></td><td id=";&gt;Dt" class="">week</td><td id="IVh]" class="">nb_sold</td><td id="ZsKh" class="" style="width:102px">revenue</td><td id="jedC" class="" style="width:134px">year_as_customer</td><td id="&gt;Hom" class="" style="width:109px">nb_site_visits</td></tr><tr id="1980c2b0-beb8-8026-9040-ca85a233d39e"><td id="@H}w" class="">Count</td><td id=";&gt;Dt" class="">15000</td><td id="IVh]" class="">15000</td><td id="ZsKh" class="" style="width:102px">13926</td><td id="jedC" class="" style="width:134px">15000</td><td id="&gt;Hom" class="" style="width:109px">15000</td></tr><tr id="1980c2b0-beb8-8033-8f02-f8e6eb136e2b"><td id="@H}w" class="">Mean</td><td id=";&gt;Dt" class="">3.10</td><td id="IVh]" class="">10.08</td><td id="ZsKh" class="" style="width:102px">93.93</td><td id="jedC" class="" style="width:134px">4.97</td><td id="&gt;Hom" class="" style="width:109px">24.99</td></tr><tr id="1980c2b0-beb8-8070-b69e-f0e616d4a1c1"><td id="@H}w" class="">Std</td><td id=";&gt;Dt" class="">1.66</td><td id="IVh]" class="">1.81</td><td id="ZsKh" class="" style="width:102px">47.44</td><td id="jedC" class="" style="width:134px">5.04</td><td id="&gt;Hom" class="" style="width:109px">3.50</td></tr><tr id="1980c2b0-beb8-80e8-9bb3-d421371a74a7"><td id="@H}w" class="">Min</td><td id=";&gt;Dt" class="">1.0</td><td id="IVh]" class="">7.0</td><td id="ZsKh" class="" style="width:102px">32.54</td><td id="jedC" class="" style="width:134px">0.00</td><td id="&gt;Hom" class="" style="width:109px">12.00</td></tr><tr id="1980c2b0-beb8-8029-8d5d-e606b62621da"><td id="@H}w" class="">25%</td><td id=";&gt;Dt" class="">2.0</td><td id="IVh]" class="">9.00</td><td id="ZsKh" class="" style="width:102px">52.47</td><td id="jedC" class="" style="width:134px">1.00</td><td id="&gt;Hom" class="" style="width:109px">23.00</td></tr><tr id="1990c2b0-beb8-8094-852e-cc76abbca534"><td id="@H}w" class="">50%</td><td id=";&gt;Dt" class="">3.00</td><td id="IVh]" class="">10.00</td><td id="ZsKh" class="" style="width:102px">89.50</td><td id="jedC" class="" style="width:134px">3.00</td><td id="&gt;Hom" class="" style="width:109px">25.00</td></tr><tr id="1990c2b0-beb8-80ae-b78f-d451594cf496"><td id="@H}w" class="">75%</td><td id=";&gt;Dt" class="">5.00</td><td id="IVh]" class="">11.00</td><td id="ZsKh" class="" style="width:102px">107.33</td><td id="jedC" class="" style="width:134px">7.00</td><td id="&gt;Hom" class="" style="width:109px">27.00</td></tr><tr id="1990c2b0-beb8-8018-b92f-d2e61ed9d32d"><td id="@H}w" class="">Max</td><td id=";&gt;Dt" class="">6.00</td><td id="IVh]" class="">16.00</td><td id="ZsKh" class="" style="width:102px">238.32</td><td id="jedC" class="" style="width:134px">63.00</td><td id="&gt;Hom" class="" style="width:109px">41.00</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80d3-bae7-f5bcc3001456" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Check the value counts to ensure there are only 3 unique values
-print(sales_data[&#x27;sales_method&#x27;].value_counts())</code></pre><table id="1990c2b0-beb8-80b8-8354-cfe338244d92" class="simple-table"><tbody><tr id="1990c2b0-beb8-8059-80db-cd6c90449c49"><td id="cRO_" class="">Email</td><td id="Qb@a" class="">7456</td></tr><tr id="1990c2b0-beb8-80d0-9a96-c04c1434f0a4"><td id="cRO_" class="">Call</td><td id="Qb@a" class="">4962</td></tr><tr id="1990c2b0-beb8-8079-9349-d27c689e0105"><td id="cRO_" class="">Email + Call</td><td id="Qb@a" class="">2549</td></tr><tr id="1990c2b0-beb8-80d6-b810-d3c6c8850177"><td id="cRO_" class="">em + call</td><td id="Qb@a" class="">23</td></tr><tr id="1990c2b0-beb8-807e-9e1e-fea2d6eeddc6"><td id="cRO_" class="">email</td><td id="Qb@a" class="">10</td></tr><tr id="1990c2b0-beb8-80bc-a201-f3c70e52e392"><td id="cRO_" class="">Name: sales_method</td><td id="Qb@a" class="">dtype: int64</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80bd-8a31-edd836b81f2f" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Define a mapping dictionary to correct the inconsistent values
-sales_method_mapping = {
-    &#x27;Email&#x27;: &#x27;Email&#x27;,
-    &#x27;Call&#x27;: &#x27;Call&#x27;,
-    &#x27;Email + Call&#x27;: &#x27;Email + Call&#x27;,
-    &#x27;em + call&#x27;: &#x27;Email + Call&#x27;,
-    &#x27;email&#x27;: &#x27;Email&#x27;
-}
-
-# Apply the mapping to the &#x27;sales_method&#x27; column
-sales_data[&#x27;sales_method&#x27;] = sales_data[&#x27;sales_method&#x27;].map(sales_method_mapping)
-
-# Check the value counts to ensure there are only 3 unique values
-print(sales_data[&#x27;sales_method&#x27;].value_counts())</code></pre><table id="1990c2b0-beb8-80cc-8698-d02b721176aa" class="simple-table"><tbody><tr id="1990c2b0-beb8-8038-a6b0-f13bbf22cb39"><td id="r^RQ" class="" style="width:187px">Email</td><td id="_Brb" class="">7466</td></tr><tr id="1990c2b0-beb8-8040-aa98-c5d3df3c04fd"><td id="r^RQ" class="" style="width:187px">Call</td><td id="_Brb" class="">4962</td></tr><tr id="1990c2b0-beb8-80c9-90a2-ef1491ce7cff"><td id="r^RQ" class="" style="width:187px">Email + Call</td><td id="_Brb" class="">2572</td></tr><tr id="1990c2b0-beb8-80b5-a25a-f0bffe9e74e7"><td id="r^RQ" class="" style="width:187px">Name:  sales_method</td><td id="_Brb" class="">dtype: int64</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80b6-be70-ddbdf462a4ac" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># find mean revenue for each sales method
-mean_revenue_by_sales_method = sales_data.groupby(&#x27;sales_method&#x27;)[&#x27;revenue&#x27;].mean()
-print(mean_revenue_by_sales_method)</code></pre><table id="1990c2b0-beb8-8051-b1c6-dd2af468c74f" class="simple-table"><tbody><tr id="1990c2b0-beb8-8083-b38e-e402e6880883"><td id="Ph^R" class="">sales_method</td><td id="mEm~" class=""></td></tr><tr id="1990c2b0-beb8-80d4-a232-c60ed80ee03c"><td id="Ph^R" class="">Call</td><td id="mEm~" class="">47.597467</td></tr><tr id="1990c2b0-beb8-80a7-9545-fba114e17f33"><td id="Ph^R" class="">Email</td><td id="mEm~" class="">97.127684</td></tr><tr id="1990c2b0-beb8-8011-8d1c-e70991f5755e"><td id="Ph^R" class="">Email + Call</td><td id="mEm~" class="">183.651233</td></tr><tr id="1990c2b0-beb8-80d6-849f-c15590153b1e"><td id="Ph^R" class="">Name: revenue</td><td id="mEm~" class="">dtype: float64</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-8089-9371-f8479db87ea1" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def replace_null_revenue(row):
-    &quot;&quot;&quot;
-    Replaces null (NaN) values in the &#x27;revenue&#x27; column of a pandas DataFrame with the mean (or median) revenue
-    for the corresponding &#x27;sales_method&#x27; group.
-
-    Parameters:
-    -----------
-    row : pandas Series
-        A single row of a pandas DataFrame containing the &#x27;revenue&#x27; and &#x27;sales_method&#x27; columns.
-
-    Returns:
-    --------
-    float
-        The value of the &#x27;revenue&#x27; column for the given row, either the original value if it is not null, or
-        the mean (or median) revenue for the corresponding &#x27;sales_method&#x27; group if it is null.
-    &quot;&quot;&quot;
-    if pd.isnull(row[&#x27;revenue&#x27;]):
-        return mean_revenue_by_sales_method[row[&#x27;sales_method&#x27;]]
-    else:
-        return row[&#x27;revenue&#x27;]</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80ac-9fb2-e1e1010f6483" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># apply function to the revenue column
-sales_data[&#x27;revenue&#x27;] = sales_data.apply(replace_null_revenue, axis=1)
-
-# check for any null values in the revenue column
-print(sales_data[&#x27;revenue&#x27;].isnull().sum())</code></pre><table id="1990c2b0-beb8-8009-8989-e1a09d00d4b2" class="simple-table"><tbody><tr id="1990c2b0-beb8-8083-85b8-e8338d5d0dd8"><td id="AAor" class="">0</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-8013-b3a8-fdf04d89feb5" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sales_data[sales_data[&#x27;years_as_customer&#x27;] &gt; 39]</code></pre><table id="1990c2b0-beb8-8037-b72d-fc1ce7b70c0a" class="simple-table"><tbody><tr id="1990c2b0-beb8-80ba-9122-f107b02b50fb"><td id="lCic" class=""></td><td id="_GTF" class=""><strong>week</strong></td><td id="pguA" class=""><strong>sales_method</strong></td><td id="qqpn" class=""><strong>customer_id</strong></td><td id="yl{g" class=""><strong>nb_sold</strong></td><td id="GuIJ" class=""><strong>revenue</strong></td><td id="s&lt;QG" class=""><strong>years_as_customer</strong></td><td id="zF;Z" class=""><strong>nb_site_visits</strong></td><td id="?PGh" class=""><strong>state</strong></td></tr><tr id="1990c2b0-beb8-80fe-b3f2-c5cd9722264f"><td id="lCic" class=""><strong>13741</strong></td><td id="_GTF" class="">2</td><td id="pguA" class="">Email</td><td id="qqpn" class="">18919515-a618-430c-9a05-2c7d8fea96af</td><td id="yl{g" class="">10</td><td id="GuIJ" class="">97.22</td><td id="s&lt;QG" class="">63</td><td id="zF;Z" class="">24</td><td id="?PGh" class="">California</td></tr><tr id="1990c2b0-beb8-803a-97f1-d3fc27b43831"><td id="lCic" class=""><strong>13800</strong></td><td id="_GTF" class="">4</td><td id="pguA" class="">Call</td><td id="qqpn" class="">2ea97d34-571d-4e1b-95be-fea1c404649f</td><td id="yl{g" class="">10</td><td id="GuIJ" class="">50.47</td><td id="s&lt;QG" class="">47</td><td id="zF;Z" class="">27</td><td id="?PGh" class="">California</td></tr></tbody></table><p id="1990c2b0-beb8-805b-8082-d7911dba974d" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80c9-b1cf-e4a29308bb7a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># find all values &gt; 39 and replace with 39
-sales_data.loc[sales_data[&#x27;years_as_customer&#x27;] &gt; 39, &#x27;years_as_customer&#x27;] = 39</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80e6-b2df-cbe4af6bc339" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># check to see if replacement worked
-sales_data[sales_data[&#x27;years_as_customer&#x27;] &gt; 39]</code></pre><table id="1990c2b0-beb8-80bf-a7c7-e23cfbd108ca" class="simple-table"><tbody><tr id="1990c2b0-beb8-80f8-9c8c-e951af4f9bfb"><td id="FbLH" class="" style="width:55px">week</td><td id=":skM" class="" style="width:109px">sales_method</td><td id="hi&gt;J" class="" style="width:98px">customer_id</td><td id="WrHD" class="" style="width:69px">nb_sold</td><td id=";DV`" class="" style="width:69px">revenue</td><td id="A&lt;@_" class="" style="width:135px">year_as_customer</td><td id="Z&gt;{o" class="" style="width:104px">nb_site_visits</td><td id="hZvN" class="" style="width:68px">state</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80e7-9619-e8846e1de2b0" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">print(f&quot;Number of rows with invalid values: {sales_data[&#x27;years_as_customer&#x27;].gt(39).sum()}&quot;)</code></pre><table id="1990c2b0-beb8-806c-8d24-cad04e452050" class="simple-table"><tbody><tr id="1990c2b0-beb8-80c0-a32e-c0d6c3f22241"><td id="xSHp" class="" style="width:253px">Number of rows with invalid values: 0</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80d9-b1de-ec4d54bdb7b4" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># check number of unique values for state
-sales_data[&#x27;state&#x27;].nunique()</code></pre><table id="1990c2b0-beb8-804b-a4b4-c76ae9ceba50" class="simple-table"><tbody><tr id="1990c2b0-beb8-8019-9372-ecccfca36190"><td id="}_Ob" class="">50</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80b6-a3e1-df878f6df2c1" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># check if any duplicate rows
-duplicate_rows = sales_data[sales_data.duplicated()]
-duplicate_rows</code></pre><table id="1990c2b0-beb8-80b3-b6e7-c0c975bc40a7" class="simple-table"><tbody><tr id="1990c2b0-beb8-807b-9ab3-fe34c8d84133"><td id="fIE=" class="" style="width:51px">week</td><td id="J[G[" class="" style="width:107px">sales_method</td><td id=":MEL" class="">customer_id</td><td id="JRnR" class="" style="width:71px">nb_sold</td><td id="|bMr" class="" style="width:72px">revenue</td><td id="^Rp|" class="" style="width:130px">year_as_customer</td><td id="hjJ&lt;" class="" style="width:106px">nb_site_visits</td><td id="qtM^" class="" style="width:50px">state</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-8041-becc-f39b1401c10c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">print(f&quot;Number of duplicate rows: {sales_data.duplicated().sum()}&quot;)</code></pre><table id="1990c2b0-beb8-802c-8c34-cee49dce5ce3" class="simple-table"><tbody><tr id="1990c2b0-beb8-8012-b0ed-f82bebebab22"><td id="xSHp" class="" style="width:253px">Number of duplicate rows: 0</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-8065-b803-faaee7a4f6f1" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">sales_data.info()</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80ae-82a0-d24d2e1eb086" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&lt;class &#x27;pandas.core.frame.DataFrame&#x27;&gt;
-RangeIndex: 15000 entries, 0 to 14999
-Data columns (total 8 columns):
- #   Column             Non-Null Count  Dtype
----  ------             --------------  -----
- 0   week               15000 non-null  int64
- 1   sales_method       15000 non-null  object
- 2   customer_id        15000 non-null  object
- 3   nb_sold            15000 non-null  int64
- 4   revenue            15000 non-null  float64
- 5   years_as_customer  15000 non-null  int64
- 6   nb_site_visits     15000 non-null  int64
- 7   state              15000 non-null  object
-dtypes: float64(1), int64(4), object(3)
-memory usage: 937.6+ KB</code></pre><p id="1990c2b0-beb8-80ea-a995-f89c8e53f198" class="">
-</p><h1 id="1990c2b0-beb8-80f2-91a1-ddc53ce7c1ae" class="">3. Exploratory Analysis</h1><h2 id="1990c2b0-beb8-8081-8f06-ffa5691d2ba5" class="">A. Customer Distribution by Sales Method</h2><p id="1990c2b0-beb8-803e-b41a-ebf1b19afca6" class="">Over the six-week period, the <strong>Email</strong> sales method reached the highest number of customers, totaling <strong>7,466</strong>. The <strong>Call</strong> method followed, engaging <strong>4,962</strong> customers. Meanwhile, the <strong>Email + Call</strong> approach had the lowest engagement, with <strong>2,572</strong> customers.</p><p id="1990c2b0-beb8-808f-8ebc-e4a4ef45a484" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-8040-af00-dc0dda590a40" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># find number of customers for each sales method
-customers_by_sales_method = sales_data[&#x27;sales_method&#x27;].value_counts()
-print(customers_by_sales_method)</code></pre><table id="1990c2b0-beb8-808e-81c5-cb3419899788" class="simple-table"><tbody><tr id="1990c2b0-beb8-8004-b9ca-dccaf7a08c89"><td id="@jUl" class="">Email</td><td id="^hEL" class="">7466</td></tr><tr id="1990c2b0-beb8-8080-99bf-dc55ab9f41be"><td id="@jUl" class="">Call</td><td id="^hEL" class="">4962</td></tr><tr id="1990c2b0-beb8-805f-8d4e-cbb483b6c5db"><td id="@jUl" class="">Email + Call</td><td id="^hEL" class="">2572</td></tr><tr id="1990c2b0-beb8-80e2-a2e5-fe5a673ff2ce"><td id="@jUl" class="">Name:  sales_method</td><td id="^hEL" class="">dtype: int64</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-8070-b6e7-e3180c2f69ec" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">customers_by_sales_method = sales_data[&#x27;sales_method&#x27;].value_counts()
-
-ax = sns.barplot(x=customers_by_sales_method.index, y=customers_by_sales_method.values)
-
-plt.title(&quot;Number of Customers by Sales Method&quot;)
-plt.xlabel(&quot;Sales Method&quot;)
-plt.ylabel(&quot;Number of Customers&quot;)
-
-# Add value labels to each bar
-for i, v in enumerate(customers_by_sales_method.values):
-    ax.text(i, v + 0.5, str(v), ha=&#x27;center&#x27;)
-</code></pre><figure id="1990c2b0-beb8-808c-8ff0-d3a53f361717" class="image"><a href="image.png"><img style="width:709.9886474609375px" src="image.png"/></a></figure><p id="1990c2b0-beb8-8006-9b2d-d29a578df97e" class="">
-</p><h2 id="1990c2b0-beb8-8093-b66c-caad815bb30b" class="">B. Revenue Distribution: Overall and by Sales Method</h2><p id="1990c2b0-beb8-80c0-a909-e170e83ac880" class="">How does revenue differ across various sales methods and in total?</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80da-87af-d870e6e02223" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Histogram for overall revenue
-plt.boxplot(sales_data[&#x27;revenue&#x27;])
-plt.xlabel(&#x27;Revenue&#x27;)
-plt.ylabel(&#x27;Frequency&#x27;)
-plt.title(&#x27;Overall Revenue Distribution&#x27;)
-plt.show()</code></pre><figure id="1990c2b0-beb8-8084-97b0-e59cca77893e" class="image"><a href="image%201.png"><img style="width:709.977294921875px" src="image%201.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-8016-ab58-de12302d760a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">sales_data.boxplot(column=&#x27;revenue&#x27;, by=&#x27;sales_method&#x27;)
-plt.xlabel(&#x27;Sales Method&#x27;)
-plt.ylabel(&#x27;Revenue&#x27;)
-plt.title(&#x27;Revenue Distribution by Sales Method&#x27;)
-plt.suptitle(&#x27;&#x27;)  # Remove auto-generated sup-title
-plt.show()</code></pre><figure id="1990c2b0-beb8-80a7-b058-f2d5012f6b7f" class="image"><a href="image%202.png"><img style="width:709.9886474609375px" src="image%202.png"/></a></figure><p id="1990c2b0-beb8-80b5-bec1-fbd33eec4c41" class="">
-</p><h2 id="1990c2b0-beb8-80ad-aefb-fe9ad9c54b6d" class="">C. Revenue Trends Over Time by Sales Method</h2><p id="1990c2b0-beb8-8088-9d02-c99949f90224" class="">This section analyzes revenue patterns over the six-week period for each sales method, identifying fluctuations and key trends in <strong>Email, Call, and Email + Call</strong> strategies.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-806c-9364-ef3525f9633e" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">revenue_over_time = sales_data.groupby([&#x27;week&#x27;, &#x27;sales_method&#x27;])[&#x27;revenue&#x27;].sum().unstack()
-revenue_over_time.plot()
-plt.xlabel(&#x27;Week&#x27;)
-plt.ylabel(&#x27;Revenue&#x27;)
-plt.title(&#x27;Revenue over Time by Sales Method&#x27;)
-plt.legend(title=&#x27;Sales Method&#x27;)
-plt.show()</code></pre><figure id="1990c2b0-beb8-80eb-b4a7-f14f455d123b" class="image"><a href="image%203.png"><img style="width:709.9750366210938px" src="image%203.png"/></a></figure><p id="1990c2b0-beb8-807a-a2a0-cfbaa8e25f5c" class="">Based on the table above, the following insights can be drawn:</p><ul id="1990c2b0-beb8-80a7-875d-f0033e1b90f6" class="bulleted-list"><li style="list-style-type:disc"><strong>Week 1 Performance:</strong> The <strong>Email</strong> sales method led with the highest revenue at <strong>$48,122.68</strong>, followed by <strong>Call</strong> at <strong>$27,015.93</strong> and <strong>Email + Call</strong> at <strong>$20,007.40</strong>. Notably, <strong>Email</strong> required the least effort from the sales team, making it the most efficient approach in the first week.</li></ul><ul id="1990c2b0-beb8-8013-aa25-cebd851bc58a" class="bulleted-list"><li style="list-style-type:disc"><strong>Trends Over Six Weeks:</strong><ul id="1990c2b0-beb8-8058-8a97-ef5669a28685" class="bulleted-list"><li style="list-style-type:circle"><strong>Email</strong> revenue steadily declined over time, indicating diminishing returns.</li></ul><ul id="1990c2b0-beb8-80d3-89a5-cd73fdf2bc83" class="bulleted-list"><li style="list-style-type:circle"><strong>Call</strong> revenue showed an overall upward trend, though with some fluctuations. However, it began to decline toward the end of the period.</li></ul><ul id="1990c2b0-beb8-80c5-bea2-c98b0fe0b86d" class="bulleted-list"><li style="list-style-type:circle"><strong>Email + Call</strong> demonstrated a consistent and strong revenue increase, suggesting its potential for sustained growth.</li></ul></li></ul><ul id="1990c2b0-beb8-80f8-852c-ffaa4265eb2c" class="bulleted-list"><li style="list-style-type:disc"><strong>Conclusion:</strong> While <strong>Email + Call</strong> appears to be the most promising for long-term revenue growth, it demands more effort from the sales team. <strong>Email</strong> starts strong but declines over time, whereas <strong>Call</strong> shows growth with some volatility. Balancing efficiency and effort is crucial when determining the best sales strategy moving forward.</li></ul><p id="1990c2b0-beb8-8037-8ce4-c95fcd5fbeff" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-802d-9347-f19bb59460b8" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">revenue_over_time</code></pre><table id="1990c2b0-beb8-8046-a003-eef29bb19285" class="simple-table"><tbody><tr id="1990c2b0-beb8-8043-afb0-f67d9d204edf"><td id="RxNJ" class=""><strong>sales_method</strong></td><td id="Lc\c" class=""><strong>Call</strong></td><td id="sIjm" class=""><strong>Email</strong></td><td id="AeAy" class=""><strong>Email + Call</strong></td></tr><tr id="1990c2b0-beb8-8056-ba5f-d4ef26757c53"><td id="RxNJ" class=""><strong>week</strong></td><td id="Lc\c" class=""></td><td id="sIjm" class=""></td><td id="AeAy" class=""></td></tr><tr id="1990c2b0-beb8-80ed-8185-c324820bf26d"><td id="RxNJ" class=""><strong>1</strong></td><td id="Lc\c" class="">27015.934407</td><td id="sIjm" class="">248122.682313</td><td id="AeAy" class="">20007.400954</td></tr><tr id="1990c2b0-beb8-80de-9771-d28deb5f2e29"><td id="RxNJ" class=""><strong>2</strong></td><td id="Lc\c" class="">35219.944012</td><td id="sIjm" class="">148478.487577</td><td id="AeAy" class="">31702.115744</td></tr><tr id="1990c2b0-beb8-8049-9964-ffe1ee31f42c"><td id="RxNJ" class=""><strong>3</strong></td><td id="Lc\c" class="">37865.583880</td><td id="sIjm" class="">107047.993157</td><td id="AeAy" class="">55164.933140</td></tr><tr id="1990c2b0-beb8-80ed-8d34-f4e4fa10a010"><td id="RxNJ" class=""><strong>4</strong></td><td id="Lc\c" class="">51545.486149</td><td id="sIjm" class="">116044.223157</td><td id="AeAy" class="">89682.576419</td></tr><tr id="1990c2b0-beb8-80c6-98ef-e49ec0f9d36b"><td id="RxNJ" class=""><strong>5</strong></td><td id="Lc\c" class="">55279.216281</td><td id="sIjm" class="">80201.111052</td><td id="AeAy" class="">147195.006815</td></tr><tr id="1990c2b0-beb8-8000-ab28-d72a26c3519d"><td id="RxNJ" class=""><strong>6</strong></td><td id="Lc\c" class="">29252.466808</td><td id="sIjm" class="">25260.792947</td><td id="AeAy" class="">128598.937094</td></tr></tbody></table><p id="1990c2b0-beb8-8088-994d-ef76740bdf54" class="">
-</p><h2 id="1990c2b0-beb8-80e9-bfd7-f878da57eb36" class="">D. Exploring Customer Differences Across Sales Methods</h2><p id="1990c2b0-beb8-803d-a55c-eb4a845441bd" class="">The charts below highlight key insights:</p><ul id="1990c2b0-beb8-804c-a97e-ea3433167fd1" class="bulleted-list"><li style="list-style-type:disc">The number of years customers have been in business remains fairly consistent across all sales methods.</li></ul><ul id="1990c2b0-beb8-809f-9eb3-ea024591eea4" class="bulleted-list"><li style="list-style-type:disc">Customers engaged through <strong>Email + Call</strong> made an average of <strong>12 purchases per customer</strong>, compared to <strong>10 purchases</strong> for both <strong>Email</strong> and <strong>Call</strong> methods. Those using <strong>Email + Call</strong> typically bought <strong>between 10 and 13 items</strong>, whereas customers contacted via <strong>Email</strong> or <strong>Call</strong> purchased <strong>8 to 11 items</strong>. This suggests that the <strong>Email + Call</strong> method leads to larger purchases, potentially boosting revenue.</li></ul><ul id="1990c2b0-beb8-8054-8e49-dc328646622a" class="bulleted-list"><li style="list-style-type:disc">Additionally, customers reached via <strong>Email + Call</strong> had more site visits on average than those contacted through <strong>Email</strong> or <strong>Call</strong> alone. This increased engagement may contribute to higher revenue by encouraging further interaction with our website.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80b0-88ed-c75ff7a9ada3" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Example: Boxplot for years_as_customer by sales_method
-sales_data.boxplot(column=&#x27;years_as_customer&#x27;, by=&#x27;sales_method&#x27;)
-plt.xlabel(&#x27;Sales Method&#x27;)
-plt.ylabel(&#x27;Years as Customer&#x27;)
-plt.title(&#x27;Years as Customer Distribution by Sales Method&#x27;)
-plt.suptitle(&#x27;&#x27;)  # Remove auto-generated sup-title
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>Sales Channel Analysis for a New Office Stationery Product Line | Eric Yang</title>
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Sales Channel Analysis for a New Office Stationery Product Line" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://ericyangdr.github.io/projects/01.html" />
+    <meta property="og:url" content="https://ericyangdr.github.io/projects/01.html" />
+    <meta property="og:site_name" content="Eric Yang" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Sales Channel Analysis for a New Office Stationery Product Line" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "headline": "Sales Channel Analysis for a New Office Stationery Product Line",
+        "url": "https://ericyangdr.github.io/projects/01.html"
+      }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=c9ceaf7af3e0f58f04dfbf6099defaa70cb93d6b">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h3><a href="https://ericyangdr.github.io/">Eric Yang</a></h3>
+      
+      <h1 id="sales-channel-analysis-for-a-new-office-stationery-product-line">Sales Channel Analysis for a New Office Stationery Product Line</h1>
+      <p><em></em></p>
+<p><img src=" https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/image_50.jpg" alt="" /></p>
+
+      <h2 id="introduction">Introduction</h2>
+      <p>In today’s competitive market, businesses must constantly innovate and refine their sales strategies to stay ahead. Our company recently launched a new line of office stationery designed to spark creativity and enhance brainstorming sessions. To identify the most effective sales strategy, we tested three approaches: Email outreach, Phone calls, and a combination of both (Email + Call).</p>
+      <p>This project analyzes the performance of these sales methods over a six-week period, providing data-driven insights to optimize our sales efforts. By leveraging Python for data cleaning, analysis, and visualization, and introducing a custom metric to measure sales efficiency, I uncovered actionable recommendations to drive the success of our new product line.</p>
+
+      <h2 id="problem-statement">Problem Statement</h2>
+      <p>The goal of this analysis was to evaluate the effectiveness of three sales methods - Email, Call, and Email + Call in driving revenue and customer engagement. Specifically, I aimed to answer the following questions:</p>
+      <ul>
+        <li>Which sales method reaches the most customers?</li>
+        <li>How does revenue vary across sales methods?</li>
+        <li>Which method generates the highest revenue per unit of effort?</li>
+        <li>What are the long-term trends in revenue for each method?</li>
+        <li>How do customer engagement metrics (e.g., site visits, purchases) differ across methods?</li>
+      </ul>
+      <p>By addressing these questions, I sought to identify the most efficient and sustainable sales strategy for our new product line.</p>
+
+      <h2 id="data-cleaning--transformation">Data Cleaning & Transformation</h2>
+      <p>The dataset consisted of 15,000 rows and 8 columns, capturing details such as sales method, revenue, customer ID, and engagement metrics. Here’s how I prepared the data for analysis:</p>
+      <ul>
+        <li><strong>Standardizing Sales Methods:</strong> The <code>sales_method</code> column initially contained inconsistent values (e.g., "em + call" and "email"). I mapped these to three standardized values: Email, Call, and Email + Call.</li>
+        <li><strong>Handling Missing Revenue Data:</strong> There were 1,074 missing values in the <code>revenue</code> column. I replaced these with the mean revenue for each respective sales method.</li>
+        <li><strong>Correcting Invalid Data:</strong> Two entries in the <code>years_as_customer</code> column exceeded the company’s founding year (1984). I corrected these to the maximum possible value of 39 years.</li>
+        <li><strong>Checking for Duplicates:</strong> The dataset had no duplicate rows, ensuring the integrity of the analysis.</li>
+      </ul>
+      <p>After cleaning, the dataset was ready for exploratory analysis.</p>
+
+      <h2 id="exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</h2>
+      <h3 id="customer-distribution-by-sales-method">1. Customer Distribution by Sales Method</h3>
+      <p>Email reached the most customers (7,466), followed by Call (4,962) and Email + Call (2,572).</p>
+      <p>This suggests that Email is the most scalable method, while Email + Call requires more effort but targets fewer customers.</p>
+
+      <div class="language-python highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight">
+            <code>
+              # Find number of customers for each sales method
+              customers_by_sales_method = sales_data['sales_method'].value_counts()
+              print(customers_by_sales_method)
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Sales Method</th>
+            <th>Number of Customers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Email</td>
+            <td>7466</td>
+          </tr>
+          <tr>
+            <td>Call</td>
+            <td>4962</td>
+          </tr>
+          <tr>
+            <td>Email + Call</td>
+            <td>2572</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id="revenue-distribution-by-sales-method">2. Revenue Distribution by Sales Method</h3>
+      <p>Email + Call generated the highest average revenue per customer, followed by Email and Call.</p>
+      <p>This indicates that combining both methods drives higher sales and customer engagement.</p>
+
+      <div class="language-python highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight">
+            <code>
+              # Histogram for overall revenue
+              plt.boxplot(sales_data['revenue'])
+              plt.xlabel('Revenue')
+              plt.ylabel('Frequency')
+              plt.title('Overall Revenue Distribution')
+              plt.show()
+            </code>
+          </pre>
+        </div>
+      </div>
+<p><img src=" https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/image%2080.png" alt="" /></p>
+
+
+      <h3 id="revenue-trends-over-time">3. Revenue Trends Over Time</h3>
+      <p>Email + Call showed a consistent upward trend in revenue over the six-week period.</p>
+      <p>Email started strong but declined over time, while Call exhibited fluctuations and a downward trend toward the end.</p>
+      <p>This suggests that Email + Call is the most sustainable method for long-term growth.</p>
+
+      <div class="language-python highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight">
+            <code>
+              revenue_over_time = sales_data.groupby(['week', 'sales_method'])['revenue'].sum().unstack()
+              revenue_over_time.plot()
+              plt.xlabel('Week')
+              plt.ylabel('Revenue')
+              plt.title('Revenue over Time by Sales Method')
+              plt.legend(title='Sales Method')
+              plt.show()
+            </code>
+          </pre>
+        </div>
+      </div>
+<p><img src=" https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/image%2081.png" alt="" /></p>
+
+
+      <h3 id="customer-engagement-across-sales-methods">4. Customer Engagement Across Sales Methods</h3>
+      <p>Customers reached through Email + Call made more purchases (average of 12 items) compared to Email or Call alone (average of 10 items).</p>
+      <p>These customers also had more site visits, indicating higher engagement with the brand.</p>
+
+      <div class="language-python highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight">
+            <code>
+              # Number of Sales by Sales Method
+sales_data.boxplot(column='nb_sold', by='sales_method')
+plt.xlabel('Sales Method')
+plt.ylabel('Number Sold')
+plt.title('Number of Sales Distribution by Sales Method')
+plt.suptitle('')  # Remove auto-generated sup-title
 plt.show()
+            </code>
+          </pre>
+        </div>
+      </div>
+<p><img src=" https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/image%2082.png" alt="" /></p>
 
-# Other comparisons can be performed similarly (e.g., nb_site_visits, state, etc.)</code></pre><figure id="1990c2b0-beb8-800c-8b91-f8e397c4669b" class="image"><a href="image%204.png"><img style="width:709.9874877929688px" src="image%204.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-805e-a8db-cf8ab9d923ac" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Example: Boxplot for years_as_customer by sales_method
-sales_data.boxplot(column=&#x27;nb_sold&#x27;, by=&#x27;sales_method&#x27;)
-plt.xlabel(&#x27;Sales Method&#x27;)
-plt.ylabel(&#x27;Number Sold&#x27;)
-plt.title(&#x27;Number of Sales Distribution by Sales Method&#x27;)
-plt.suptitle(&#x27;&#x27;)  # Remove auto-generated sup-title
-plt.show()</code></pre><figure id="1990c2b0-beb8-8055-8c91-ed027ad31f32" class="image"><a href="image%205.png"><img style="width:709.9750366210938px" src="image%205.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80ac-88b8-da7b3fe48f30" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Example: Boxplot for years_as_customer by sales_method
-sales_data.boxplot(column=&#x27;nb_site_visits&#x27;, by=&#x27;sales_method&#x27;)
-plt.xlabel(&#x27;Sales Method&#x27;)
-plt.ylabel(&#x27;# of Site Visits&#x27;)
-plt.title(&#x27;# of Site Visits Distribution by Sales Method&#x27;)
-plt.suptitle(&#x27;&#x27;)  # Remove auto-generated sup-title
-plt.show()
+      <h2 id="defining-a-key-business-metric-arpse">Defining a Key Business Metric: Average Revenue per Customer Sales Effort (ARPSE)</h2>
+      <p>To evaluate the efficiency of each sales method, I introduced a custom metric called <strong>Average Revenue per Customer Sales Effort (ARPSE)</strong>. This metric accounts for the effort required for each method, providing a balanced comparison of performance.</p>
+      <p>The formula for ARPSE is:</p>
+      <p><strong>ARPSE = Total Revenue for Method / (Number of Customers × Sales Effort)</strong></p>
+      <p>Where:</p>
+      <ul>
+        <li>Email has a sales effort of 0.5 (low effort).</li>
+        <li>Email + Call has a sales effort of 1 (moderate effort).</li>
+        <li>Call has a sales effort of 3 (high effort).</li>
+      </ul>
 
-# Other comparisons can be performed similarly (e.g., nb_site_visits, state, etc.)</code></pre><figure id="1990c2b0-beb8-808f-9c6b-c01fba51e339" class="image"><a href="image%206.png"><img style="width:709.9750366210938px" src="image%206.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-803b-9baf-de5eacfa2859" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">grouped_data = sales_data.groupby([&#x27;week&#x27;, &#x27;sales_method&#x27;]).agg({&#x27;revenue&#x27;: &#x27;sum&#x27;, &#x27;customer_id&#x27;: &#x27;count&#x27;}).reset_index()
-grouped_data[&#x27;average_revenue_per_customer&#x27;] = grouped_data[&#x27;revenue&#x27;] / grouped_data[&#x27;customer_id&#x27;]
-pivot_data = grouped_data.pivot_table(index=&#x27;week&#x27;, columns=&#x27;sales_method&#x27;, values=&#x27;average_revenue_per_customer&#x27;)
-pivot_data.plot(kind=&#x27;line&#x27;, marker=&#x27;o&#x27;)
-plt.xlabel(&#x27;Week&#x27;)
-plt.ylabel(&#x27;Average Revenue per Customer&#x27;)
-plt.title(&#x27;Average Revenue per Customer by Sales Method over Time&#x27;)
-plt.legend(title=&#x27;Sales Method&#x27;)
-plt.grid()
-plt.show()</code></pre><figure id="1990c2b0-beb8-80e4-a6ad-c2e68d4006c8" class="image"><a href="image%207.png"><img style="width:709.9874877929688px" src="image%207.png"/></a></figure><p id="1990c2b0-beb8-8033-ab15-fb66cac01cbd" class="">
-</p><h1 id="1990c2b0-beb8-802f-b1a7-e56f37c267e8" class="">4. Defining Business Metrics to Measure Performance – Average Revenue per Customer Sales Effort (ARPSE)</h1><p id="1990c2b0-beb8-8093-9727-e0abe3da4d73" class="">To better evaluate the effectiveness of each sales method, I introduced a metric called <strong>Average Revenue per Customer Sales Effort (ARPSE)</strong>. This metric accounts for the <strong>time and effort required</strong> for each method, offering a more balanced comparison of performance.</p><p id="1990c2b0-beb8-8036-a61a-f1bc4202d506" class="">For this analysis, sales effort values are assigned as follows:</p><ul id="1990c2b0-beb8-802d-b684-d80f6eeca51f" class="bulleted-list"><li style="list-style-type:disc"><strong>Email</strong> → 0.5</li></ul><ul id="1990c2b0-beb8-80d6-b4bf-edf67ebc5da9" class="bulleted-list"><li style="list-style-type:disc"><strong>Email + Call</strong> → 1</li></ul><ul id="1990c2b0-beb8-8077-a875-c0dcd47a3b4f" class="bulleted-list"><li style="list-style-type:disc"><strong>Call</strong> → 3</li></ul><p id="1990c2b0-beb8-80a5-b835-cdbdd4715f77" class="">The ARPSE formula is:</p><h3 id="1990c2b0-beb8-80a6-9853-e96341ec6571" class=""><strong>ARPSE = (Total Revenue for Method) / (Number of Customers × Sales Effort)</strong></h3><p id="1990c2b0-beb8-8066-91cc-fcde772f1186" class="">By using ARPSE, we can determine how efficiently each sales method generates revenue in relation to the effort invested, allowing for a clearer performance comparison.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1990c2b0-beb8-80c7-b6c0-cb525d48978c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Define the sales effort for each sales method
-sales_effort = {
-    &#x27;Email&#x27;: 0.5,
-    &#x27;Call&#x27;: 3,
-    &#x27;Email + Call&#x27;: 1
-}
+      <div class="language-python highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight">
+            <code>
+              # Define the sales effort for each sales method
+              sales_effort = {
+                'Email': 0.5,
+                'Call': 3,
+                'Email + Call': 1
+              }
 
-# Group the data by sales_method and aggregate the total revenue and number of customers
-grouped_data = sales_data.groupby(&#x27;sales_method&#x27;).agg({&#x27;revenue&#x27;: &#x27;sum&#x27;, &#x27;customer_id&#x27;: &#x27;count&#x27;}).reset_index()
+              # Group the data by sales_method and aggregate the total revenue and number of customers
+              grouped_data = sales_data.groupby('sales_method').agg({'revenue': 'sum', 'customer_id': 'count'}).reset_index()
 
-# Calculate ARCPSE for each sales method
-grouped_data[&#x27;ARCPSE&#x27;] = grouped_data.apply(lambda row: row[&#x27;revenue&#x27;] / (row[&#x27;customer_id&#x27;] * sales_effort[row[&#x27;sales_method&#x27;]]), axis=1)
+              # Calculate ARPSE for each sales method
+              grouped_data['ARCPSE'] = grouped_data.apply(lambda row: row['revenue'] / (row['customer_id'] * sales_effort[row['sales_method']]), axis=1)
 
-# Display the ARCPSE for each sales method
-print(grouped_data[[&#x27;sales_method&#x27;, &#x27;ARCPSE&#x27;]])</code></pre><table id="1990c2b0-beb8-80b5-8d12-e859cf85fe96" class="simple-table"><tbody><tr id="1990c2b0-beb8-80ed-abcf-cae5538c6b78"><td id="jyR?" class=""></td><td id="bp?k" class="">sales_method</td><td id="^@Zn" class="">ARCPSE</td></tr><tr id="1990c2b0-beb8-80a8-93bc-d49a48e1a87c"><td id="jyR?" class="">0</td><td id="bp?k" class="">Call</td><td id="^@Zn" class="">15.865822</td></tr><tr id="1990c2b0-beb8-8091-8dff-daad71a48963"><td id="jyR?" class="">1</td><td id="bp?k" class="">Email</td><td id="^@Zn" class="">194.255368</td></tr><tr id="1990c2b0-beb8-80e6-a501-e4558ee00a33"><td id="jyR?" class="">2</td><td id="bp?k" class="">Email + Call</td><td id="^@Zn" class="">183.651233</td></tr></tbody></table><p id="1990c2b0-beb8-8045-af8c-f1e7d8b19726" class="">The ARPSE results show the following:</p><ul id="1990c2b0-beb8-8074-ab4b-d442fdcfb5c8" class="bulleted-list"><li style="list-style-type:disc"><strong>Email</strong> achieved the highest ARPSE value at <strong>194.25</strong>,</li></ul><ul id="1990c2b0-beb8-809b-9f58-ea73c7645aa0" class="bulleted-list"><li style="list-style-type:disc"><strong>Email + Call</strong> followed at <strong>183.65</strong>,</li></ul><ul id="1990c2b0-beb8-806d-abb8-c5b2e04e3bb3" class="bulleted-list"><li style="list-style-type:disc"><strong>Call</strong> had the lowest ARPSE value at <strong>15.86</strong>.</li></ul><p id="1990c2b0-beb8-8005-a4c3-f5b9f1a1e416" class="">These results suggest that the <strong>Email</strong> method is the most efficient in terms of revenue generated per unit of effort.</p><p id="1990c2b0-beb8-8082-807a-fd17eb09f3be" class="">However, it is important to consider additional factors:</p><ul id="1990c2b0-beb8-80f7-b18b-de54c16b4610" class="bulleted-list"><li style="list-style-type:disc">The <strong>Email + Call</strong> method not only resulted in more website visits but also led to a higher average number of items purchased.</li></ul><ul id="1990c2b0-beb8-80e5-8a04-c3d44af14ae9" class="bulleted-list"><li style="list-style-type:disc">This method showed a <strong>consistent increase in revenue</strong> over the six-week period, which highlights its potential for long-term success.</li></ul><p id="1990c2b0-beb8-80f0-9e2d-d41a4ded2829" class="">In contrast, while the <strong>Call</strong> method generated strong revenue in <strong>Week 1</strong>, it experienced a steady decline over time.<br/><br/><br/></p><h1 id="1990c2b0-beb8-809a-841a-d7007d732683" class="">Conclusion and Recommendations</h1><figure id="1990c2b0-beb8-804b-9e2e-e05e10ff676d" class="image"><a href="image_47.png"><img style="width:709.9750366210938px" src="image_47.png"/></a></figure><p id="1990c2b0-beb8-8014-9574-d093c4fc8a06" class="">Based on the comprehensive analysis, it is recommended to prioritize the <strong>Email + Call</strong> method for the following reasons:</p><ul id="1990c2b0-beb8-80fd-a7c1-f424a7dbd572" class="bulleted-list"><li style="list-style-type:disc">While <strong>Email</strong> has the highest ARPSE, the <strong>Email + Call</strong> method fosters greater customer engagement, as shown by higher website visits and an increased number of items purchased. This engagement is likely to strengthen customer relationships and drive long-term growth.</li></ul><ul id="1990c2b0-beb8-80ca-93f8-f90e86e74386" class="bulleted-list"><li style="list-style-type:disc">The <strong>Email + Call</strong> method has demonstrated a consistent upward trend in revenue over the six-week period, highlighting its potential for sustained success.</li></ul><ul id="1990c2b0-beb8-804f-a792-caffc7e0d88f" class="bulleted-list"><li style="list-style-type:disc">On the other hand, while the <strong>Call</strong> method showed early success, it is the least efficient in terms of effort versus revenue and has shown a downward revenue trend over time.</li></ul><p id="1990c2b0-beb8-8060-bc5c-cf8a58d02be6" class="">In conclusion, the <strong>Email + Call</strong> method should be prioritized in future sales efforts, as it offers better customer engagement, steady revenue growth, and a more sustainable balance of effort and return.</p><p id="1990c2b0-beb8-806d-aac6-c5769b713d7b" class="">You can download my <strong><a href="https://docs.google.com/presentation/d/1FtnGgYeD2LIPbrCETvMGCAv0m39Z-L4L/edit?usp=sharing&amp;ouid=105110342511225681586&amp;rtpof=true&amp;sd=true">report presentation</a></strong> for a detailed overview.</p><p id="1990c2b0-beb8-8000-8ce1-edb69ff748b8" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+              # Display the ARPSE for each sales method
+              print(grouped_data[['sales_method', 'ARCPSE']])
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Sales Method</th>
+            <th>ARPSE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Email</td>
+            <td>194.25</td>
+          </tr>
+          <tr>
+            <td>Email + Call</td>
+            <td>183.65</td>
+          </tr>
+          <tr>
+            <td>Call</td>
+            <td>15.86</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="key-insights">Key Insights</h2>
+      <ul>
+        <li><strong>Email + Call Drives Higher Engagement:</strong> This method leads to more purchases and site visits, indicating stronger customer engagement.</li>
+        <li><strong>Email is Scalable but Declines Over Time:</strong> While Email reaches the most customers, its revenue declines over time, suggesting diminishing returns.</li>
+        <li><strong>Call is Less Efficient:</strong> Despite generating strong initial revenue, the Call method is the least efficient and shows a downward trend.</li>
+      </ul>
+
+      <h2 id="recommendations">Recommendations</h2>
+      <p>Based on the analysis, I recommend the following actions:</p>
+      <ul>
+        <li><strong>Prioritize Email + Call for Long-Term Growth:</strong> This method drives higher engagement and consistent revenue growth, making it the most sustainable option.</li>
+        <li><strong>Use Email for Scalability:</strong> Leverage Email to reach a broad audience, but complement it with other methods to maintain revenue.</li>
+        <li><strong>Reevaluate the Call Method:</strong> Given its low efficiency and declining revenue, consider reducing reliance on this method or improving its effectiveness.</li>
+      </ul>
+
+      <h2 id="conclusion">Conclusion</h2>
+      <p>This project demonstrates my ability to clean, analyze, and derive actionable insights from complex datasets. By introducing a custom metric (ARPSE) and combining technical analysis with business acumen, I provided a clear roadmap for optimizing sales strategies. This work highlights my proficiency in Python, data visualization, and strategic decision-making, making it a strong addition to my portfolio. You can view my full code  <a href="https://github.com/ericyangdr/ericyangdr.github.io/raw/main/projects/Sales_channel_analysis.ipynb" download="Sales_channel_analysis.ipynb"> HERE</a>.</p>
+
+    </div>
+  </body>
+</html>
