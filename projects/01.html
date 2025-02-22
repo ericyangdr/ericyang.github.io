@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Analysing the Effect of Social Media on Mental Health: | Jim Rossiter</title>
+<title>Analysing the Impact of Social Media on Mental Health: | Eric Yang</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Analysing the Effect of Social Media on Mental Health:" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://jimrossiter.github.io/projects/socialmedia.html" />
-<meta property="og:url" content="https://jimrossiter.github.io/projects/socialmedia.html" />
-<meta property="og:site_name" content="Jim Rossiter" />
+<link rel="canonical" href="https://ericyangdr.github.io/projects/01.html" />
+<meta property="og:url" content=" https://ericyangdr.github.io/projects/01.html" />
+<meta property="og:site_name" content="Eric Yang" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Analysing the Effect of Social Media on Mental Health:" />
+<meta property="twitter:title" content="Analysing Coffee Sales Trends" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","headline":"Analysing the Effect of Social Media on Mental Health:","url":"https://jimrossiter.github.io/projects/socialmedia.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","headline":"Analysing the Impact of Social Media on Mental Health:","url":"https://ericyangdr.github.io/projects/01.html "}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=c9ceaf7af3e0f58f04dfbf6099defaa70cb93d6b">
@@ -27,8 +27,8 @@
 
 
 
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 <!-- end custom head snippets -->
 
@@ -36,118 +36,137 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       
-      <h1><a href="https://jimrossiter.github.io/">Jim Rossiter </a></h1>
-      
+      <h3><a href="https://ericyangdr.github.io/">Eric Yang </a></h3>
+      <h1 id="coffee-shop-sales-dashboard-brewing-insights-from-data">Coffee Shop Sales Dashboard: Brewing Insights from Data</h1>
+      <p><em></em></p>
 
-      <h1 id="analysing-the-effect-of-social-media-on-mental-health">Analysing the Effect of Social Media on Mental Health:</h1>
-<p><em>03 May 2024</em></p>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Coffee%20intro.png" alt="Coffee Shop Image" /></p>
 
-<p><img src="https://images.stockcake.com/public/2/5/8/258f6d72-bcd2-4950-8fe1-28ff941f261f_large/social-media-analysis-stockcake.jpg" alt="" /></p>
+      <h2 id="background">Background</h2>
+      <p>In today’s data-driven world, understanding customer behavior and sales trends is crucial for any business. This project dives into the sales data of a coffee shop chain, uncovering key insights to drive growth and efficiency. Using <strong>Power BI</strong>, I transformed raw data into actionable insights, creating a <strong>three-page interactive dashboard</strong> that answers critical business questions.</p>
 
-<h2 id="background">Background</h2>
-<p>I sourced this dataset from Kaggle, accessible <a href="https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health">here</a>. As an educator, I’ve observed a significant surge in phone usage and social media engagement. This piqued my interest, prompting an in-depth exploration into the quantitative impacts of these platforms on users. This dataset offered an ample opportunity to analyze and understand these effects.</p>
+      <h2 id="the-dataset">The Dataset</h2>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Raw%20data.png" alt="Dataset Screenshot" /></p>
+      <p>The dataset contained transactional data from January to June 2023, including:</p>
+      <ul>
+        <li><strong>Transaction details</strong>: Date, time, quantity, and unit price.</li>
+        <li><strong>Store information</strong>: Location and store ID.</li>
+        <li><strong>Product details</strong>: Category, type, and specific product information.</li>
+      </ul>
+      <p>This data was the foundation for uncovering trends in sales, customer behavior, and product performance.</p>
 
-<h2 id="exploratory-data-analysis">Exploratory Data Analysis</h2>
-<p>My first task was to again take in the data and get an overall feel for it. It is important for me that I familiarise myself with the data and its labels so that I am not misinterpreting any information at a later point. This would take away any credibility from my findings.</p>
+      <h2 id="data-cleaning-and-transformation-etl">Data Cleaning and Transformation (ETL)</h2>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/ELT.png" alt="Power Query Screenshot" /></p>
+      <p>Before diving into analysis, I cleaned and transformed the data using <strong>Power Query</strong>:</p>
+      <ul>
+        <li>Removed duplicates and handled missing values.</li>
+        <li>Extracted key features like <strong>day of the week</strong>, <strong>month</strong>, and <strong>hour</strong> from the transaction timestamp.</li>
+        <li>Created calculated columns like <strong>Total Sales</strong> (<code>transaction_qty * unit_price</code>) and <strong>Growth Rate</strong>.</li>
+      </ul>
+      <p>This step ensured the data was accurate and ready for analysis.</p>
 
-<p>It is worth mentioning the Likert Scale is employed for this trial of 479 participants. The Likert Scale serves as a measurement tool for assessing various mental health effects, including depression levels. For instance, participants may rate their depression experiences on a scale of 1 to 5, where 1 signifies minimal depression and 5 indicates severe depression. This structured approach allows us to quantitatively analyze not only depression but also other variables such as anxiety, restlessness, and concentration difficulty. By utilizing this standardized scale across different constructs, we can capture and compare participants’ feelings, allowing for accurate insights into mental health within our dataset.</p>
+      <h2 id="building-the-dashboard">Building the Dashboard</h2>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Coffee%20Sales%20Dashboard%20Final-1.png" alt="Dashboard Screenshot" /></p>
+<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Coffee%20Sales%20Dashboard%20Final-2.png" alt="Dashboard Screenshot" /></p>
+<p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Coffee%20Sales%20Dashboard%20Final-3.png" alt="Dashboard Screenshot" /></p>
+      <p>The dashboard is divided into <strong>three pages</strong>, each focusing on a specific aspect of the business:</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Inspecting the table for a broad view</span>
-<span class="k">SELECT</span><span class="o">*</span>
-<span class="k">FROM</span> <span class="n">smmh</span><span class="p">;</span>
+      <h3 id="page-1-sales-overview">Page 1: Sales Overview</h3>
+      <ul>
+        <li><strong>Key KPIs</strong>: Total Sales, Total Quantity Sold, and Total Transactions.</li>
+        <li><strong>Visualizations</strong>:
+          <ul>
+            <li>Pie charts for <strong>Sales by Store</strong> and <strong>Quantity by Store</strong>.</li>
+            <li>Column chart for <strong>Sales by Month</strong> with an average sales line.</li>
+            <li>Bar chart for <strong>Sales by Product Category</strong> with an average sales line.</li>
+            <li>Table chart for <strong>Product Category Details</strong> (sales, % grand total, unit price, quantity sold).</li>
+          </ul>
+        </li>
+      </ul>
 
+      <h3 id="page-2-monthly-sales">Page 2: Monthly Sales</h3>
+      <ul>
+        <li><strong>Key KPIs</strong>: Monthly Total Sales, Total Quantity Sold, and Total Transactions with <strong>Growth Rate</strong> vs. the previous month.</li>
+        <li><strong>Visualizations</strong>:
+          <ul>
+            <li>Drill-down bar chart for <strong>Monthly Sales by Product Category</strong> (Category → Type → Detail).</li>
+            <li>Column chart for <strong>Sales by Day</strong>.</li>
+            <li>Table chart for <strong>Product Category Performance</strong> (current month sales, previous month sales, growth rate).</li>
+          </ul>
+        </li>
+      </ul>
 
-<span class="c1">-- 1: AVERAGE ANXIETY BY GENDER</span>
-<span class="k">SELECT</span> <span class="n">Gender</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">Anxiety</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="n">avg_anxiety</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Gender</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_anxiety</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>When examining average anxiety scores, it’s crucial to consider context. For instance, transgender respondents showed a maximum average score of 5, but this statistic is heavily influenced by the small sample size of only one participant. Similarly, non-binary respondents, comprising only four individuals, can also skew the results. While these scores shouldn’t be discounted, a more accurate reflection requires data collection from a more substantial sample group. Interestingly, female and male respondents demonstrated comparable scores in this analysis.</p>
+      <h3 id="page-3-customer-behavior">Page 3: Customer Behavior</h3>
+      <ul>
+        <li><strong>Visualizations</strong>:
+          <ul>
+            <li><strong>Heatmaps</strong>:
+              <ul>
+                <li>Calendar heatmap to identify the busiest days.</li>
+                <li>Time vs. Day heatmap to pinpoint peak sales hours (6 AM–8 PM).</li>
+              </ul>
+            </li>
+            <li><strong>Scatter plot</strong>: Average Unit Price vs. Average Quantity Sold.</li>
+            <li><strong>Top 5 and Bottom 5 Products</strong>: Column charts comparing current and previous month sales with drill-down functionality.</li>
+          </ul>
+        </li>
+      </ul>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 2: RELATIONSHIP STATUS &amp; ANXIETY</span>
-<span class="k">SELECT</span> <span class="n">RelationshipStatus</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">ANXIETY</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_anxiety</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">RelationshipStatus</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_anxiety</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>Single individuals exhibited the highest average anxiety score at 3.79, whereas married respondents reported the lowest average of 2.85. This disparity could be attributed to factors such as age, with married individuals generally being older and potentially more resilient. However, an alternative perspective suggests that single individuals may experience heightened anxiety due to various factors, such as societal pressures, loneliness, or uncertainty about the future. Further exploration is warranted.</p>
+      <h2 id="key-findings">Key Findings</h2>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/Key%20insights.png" alt="Key Findings Collage" /></p>
+      <p>Here are the <strong>key insights</strong> uncovered from the analysis:</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 3: AGE &amp; DEPRESSION</span>
-<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">smmh</span>
-<span class="n">CHANGE</span> <span class="k">COLUMN</span> <span class="nv">`ï»¿Age`</span> <span class="n">Age</span> <span class="nb">INT</span><span class="p">;</span>
-</code></pre></div></div>
-<p><strong>Before looking at age, I altered the table. The original column name wasn’t the most reader- or writer-friendly.</strong></p>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">Age</span><span class="p">),</span> <span class="k">MAX</span><span class="p">(</span><span class="n">Age</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="n">smmh</span><span class="p">;</span>
+      <h3 id="sales-performance">Sales Performance</h3>
+      <ul>
+        <li><strong>Total Sales</strong>: $699K, with <strong>Coffee</strong> leading at 38% of total sales.</li>
+        <li><strong>Top Stores</strong>: Hell’s Kitchen contributed 34%+ of total sales.</li>
+        <li><strong>Monthly Trends</strong>: Sales dipped in February but rebounded in March (+29.8%) and grew steadily in June (+6.2%).</li>
+      </ul>
 
-<span class="k">SELECT</span>
-    <span class="k">CASE</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">10</span> <span class="k">AND</span> <span class="mi">20</span> <span class="k">THEN</span> <span class="s1">'10-20'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">20</span> <span class="k">AND</span> <span class="mi">30</span> <span class="k">THEN</span> <span class="s1">'20-30'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">30</span> <span class="k">AND</span> <span class="mi">40</span> <span class="k">THEN</span> <span class="s1">'30-40'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">40</span> <span class="k">AND</span> <span class="mi">50</span> <span class="k">THEN</span> <span class="s1">'40-50'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">50</span> <span class="k">AND</span> <span class="mi">60</span> <span class="k">THEN</span> <span class="s1">'50-60'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">60</span> <span class="k">AND</span> <span class="mi">70</span> <span class="k">THEN</span> <span class="s1">'60-70'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">70</span> <span class="k">AND</span> <span class="mi">80</span> <span class="k">THEN</span> <span class="s1">'70-80'</span>
-        <span class="k">WHEN</span> <span class="n">AGE</span> <span class="k">BETWEEN</span> <span class="mi">80</span> <span class="k">AND</span> <span class="mi">90</span> <span class="k">THEN</span> <span class="s1">'80-90'</span>
-        <span class="k">ELSE</span> <span class="s1">'90 and above'</span>
-    <span class="k">END</span> <span class="k">AS</span> <span class="n">age_group</span><span class="p">,</span>
-    <span class="k">AVG</span><span class="p">(</span><span class="n">DEPRESSION</span><span class="p">)</span> <span class="k">AS</span> <span class="n">total</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">age_group</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">total</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>Understanding the dataset nuances is crucial for accurate interpretation. While a single respondent over 90 with a maximum depression score of 5 skewed our results, excluding this outlier revealed insightful trends. Teenagers and those in their 20s exhibited the highest depression scores, averaging 3.39 and 3.54, respectively. This aligns with expectations, considering the tumultuous nature of this life stage, societal pressures, and future uncertainties. Conversely, the 50-60 age group displayed the lowest depression scores, potentially reflecting their accquired resilience. Notably, despite their active engagement with an average of 2.88 apps, they maintained positive mental health. These findings underscore the multifaceted relationship between age, mental health, and digital engagement, warranting further exploration.</p>
+      <h3 id="customer-behavior">Customer Behavior</h3>
+      <ul>
+        <li><strong>Peak Sales Times</strong>: 7 AM–11 AM (morning rush) and 5 PM (evening rush).</li>
+        <li><strong>Product Trends</strong>:
+          <ul>
+            <li><strong>Best-Sellers</strong>: Cappuccino (Large), Dark Chocolate (Large), Latte (Regular).</li>
+            <li><strong>Worst-Sellers</strong>: Dark Chocolate, Earl Grey, English Breakfast.</li>
+          </ul>
+        </li>
+      </ul>
 
-<p><img src="https://images.stockcake.com/public/f/0/8/f0825676-e186-4225-a5e2-35154161cd2e_large/joyful-social-browsing-stockcake.jpg" alt="" /></p>
+      <h3 id="opportunities-for-growth">Opportunities for Growth</h3>
+      <ul>
+        <li>Focus on promoting <strong>best-selling products</strong> during peak hours.</li>
+        <li>Improve marketing for <strong>underperforming products</strong> like teas and specialty items.</li>
+        <li>Optimize staffing and inventory during <strong>peak sales periods</strong>.</li>
+      </ul>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 4: NUMBER OF PLATFORMS USED &amp; SLEEP QUALITY</span>
-<span class="k">SELECT</span> <span class="n">NumberofSocialMediaPlatforms</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Sleeplessness</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_sleeplessness</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NumberofSocialMediaPlatforms</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_sleeplessness</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>The rationale behind this specific analysis was straightforward: examining our habits of using smartphones before bedtime. My hypothesis was that individuals with a higher number of social media applications would tend to stay up later engaging with them. As anticipated, having between 6 and 9 active social media platforms proved to have a negative impact on sleep quality. The average scores for sleeplessness in these groups ranged from 3.5 to 3.9. Conversely, individuals with fewer apps experienced better sleep, with average sleeplessness scores ranging from 2.7 to 3.1.</p>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 5: ORGANIZATION TYPE AND LEVEL OF DISTRACTION</span>
-<span class="k">SELECT</span> <span class="n">Organization</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Distraction</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_dist</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Organization</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_dist</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>Likewise, my approach to this analysis was informed by practical experience. I speculated that within various organizations, some would naturally afford more leisure time for individuals to log onto their apps and become distracted. Conversely, workplaces typically uphold codes of conduct and a sense of professionalism, leading me to hypothesize that levels of distraction would be lower in these settings. My hypothesis was validated, as individuals in school and university reported higher levels of distraction, with scores of 3 and 3.5, respectively. This stands in stark contrast to those employed in government positions, who reported an average distraction score of 2.2.</p>
+      <h2 id="recommendations">Recommendations</h2>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/rec.png" alt="Recommendations Banner" /></p>
+      <p>Based on the findings, here are my <strong>recommendations</strong>:</p>
+      <ol>
+        <li><strong>Leverage Peak Hours</strong>: Increase staffing and stock during 7 AM–11 AM and 5 PM to maximize sales.</li>
+        <li><strong>Promote Best-Sellers</strong>: Highlight top-performing products like Cappuccino and Latte through targeted marketing campaigns.</li>
+        <li><strong>Revamp Underperforming Products</strong>: Consider rebranding or discontinuing low-performing items like Earl Grey and English Breakfast.</li>
+        <li><strong>Store-Specific Strategies</strong>: Tailor strategies for high-performing stores like Astoria and Hell’s Kitchen to replicate success across other locations.</li>
+      </ol>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 6: NUMBER OF SOCIAL MEDIA APPS &amp; RELATIONSHIP STATUS</span>
-<span class="k">SELECT</span> <span class="n">RelationshipStatus</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">NumberofSocialMediaPlatforms</span><span class="p">)</span> <span class="k">AS</span> <span class="n">avg_apps</span>
-<span class="k">FROM</span> <span class="n">smmh</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">RelationshipStatus</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">avg_apps</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<p>The outcome may have initially contradicted my expectations, as individuals in relationships had the highest number of apps. However, upon deeper reflection and considering the data again, this finding becomes more understandable. It’s plausible that this group, likely belonging to a younger demographic, is more tech-savvy and accustomed to using various apps. This generational inclination towards technology could explain the results. While this insight is intriguing, further investigation into the underlying factors driving app usage among individuals in relationships would be worthwhile.</p>
+      <h2 id="conclusion">Conclusion</h2>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/thanks.png" alt="Thank You Image" /></p>
+      <p>This project was a <strong>fantastic learning experience</strong>, teaching me how to turn raw data into actionable insights. By analyzing sales trends, customer behavior, and product performance, I was able to identify opportunities for growth and efficiency.</p>
+      <p><strong>Questions I Answered</strong>:</p>
+      <ul>
+        <li>What days and times are we busiest?</li>
+        <li>How many coffees do we sell during peak periods?</li>
+        <li>What are our best and worst-selling products?</li>
+        <li>How can we improve our sales strategy?</li>
+      </ul>
+      <p>If you have any questions or would like to explore the dashboard further, feel free to ask!</p>
 
-<h2 id="recommendations">Recommendations:</h2>
-<p>Based on the analysis of the effect of social media on mental health, here are three recommendations:</p>
+      <h2 id="call-to-action">Let’s connect</h2>
+      <p><img src="https://raw.githubusercontent.com/ericyangdr/ericyangdr.github.io/refs/heads/main/projects/letsconnect.png" alt="Let’s Connect Banner" /></p>
+      <p>Interested in learning more about this project or collaborating on a similar analysis? Let’s connect! ☕</p>
 
-<ol>
-  <li>
-    <p><strong>Promote Digital Wellbeing Education</strong>: Given the observed negative impact of excessive social media usage on sleep quality, organizations and educational institutions should prioritize digital wellbeing education. It was their students who scored poorly in these areas. Providing resources and workshops on healthy smartphone usage habits, including setting boundaries and limiting screen time before bedtime, can empower individuals to maintain better sleep hygiene and overall mental wellness.</p>
-  </li>
-  <li>
-    <p><strong>Tailor Support Programs for Vulnerable Groups</strong>: Recognizing that single individuals exhibited higher levels of anxiety, targeted support programs should be developed to address their specific needs. These programs could include counseling services, support groups, and stress management techniques tailored to address the unique challenges faced by single individuals.</p>
-  </li>
-  <li>
-    <p><strong>Encourage Balanced Digital Engagement Across Age Groups</strong>: While younger age groups displayed higher depression scores and engaged with multiple social media platforms, older individuals demonstrated lower depression scores despite active digital engagement. Encouraging balanced digital engagement and promoting activities and social events among younger age groups may help reduce the negative effects of social media on mental health.</p>
-  </li>
-</ol>
-
-
-      
-      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-        This site is open source. <a href="https://github.com/JimRossiter/JimRossiter.github.io/edit/main/projects/socialmedia.md">Improve this page</a>.
-      </div>
-      
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
   </body>
 </html>
